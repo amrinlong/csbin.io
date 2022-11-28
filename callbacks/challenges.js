@@ -19,7 +19,7 @@ console.log(addS('bagel'));
 
 
 // Challenge 3
-function map(array, callback) {
+const map = (array, callback) => {
   return array.map(x => callback(x))
 }
 
@@ -27,12 +27,17 @@ console.log(map([1, 2, 3], addTwo));
 
 
 // Challenge 4
-function forEach(array, callback) {
-
+const forEach = (array, callback) => {
+  return array.forEach(x => callback(x))
 }
 
 // see for yourself if your forEach works!
-
+let alphabet = '';
+const letters = ['a', 'b', 'c', 'd'];
+forEach(letters, function(char) {
+  alphabet += char;
+  });
+console.log(alphabet); //prints 'abcd'
 
 // Challenge 5
 function mapWith(array, callback) {
