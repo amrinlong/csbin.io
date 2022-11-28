@@ -51,13 +51,13 @@ const mapWith = (array, callback) => {
 console.log(mapWith([2, 4, 6], addTwo))
 
 // Challenge 6
-function reduce(array, callback, initialValue) {
+const reduce = (array, callback, initialValue) => {
 
 }
 
 
 // Challenge 7
-function intersection(arrays) {
+const intersection = arrays => {
 
 }
 
@@ -66,7 +66,7 @@ function intersection(arrays) {
 
 
 // Challenge 8
-function union(arrays) {
+const union = arrays => {
 
 }
 
@@ -75,7 +75,7 @@ function union(arrays) {
 
 
 // Challenge 9
-function objOfMatches(array1, array2, callback) {
+const objOfMatches = (array1, array2, callback) => {
 
 }
 
@@ -84,7 +84,7 @@ function objOfMatches(array1, array2, callback) {
 
 
 // Challenge 10
-function multiMap(arrVals, arrCallbacks) {
+const multiMap = (arrVals, arrCallbacks) => {
 
 }
 
