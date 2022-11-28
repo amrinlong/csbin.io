@@ -39,11 +39,16 @@ forEach(letters, function(char) {
   });
 console.log(alphabet); //prints 'abcd'
 
-// Challenge 5
-function mapWith(array, callback) {
+// Challenge 5 // NEED HELP
+const mapWith = (array, callback) => {
+  // let results = []
+  // array.forEach(results.push((x) => callback(x)))
+  // return results
 
+  return array.forEach(x => callback(x))
 }
 
+console.log(mapWith([2, 4, 6], addTwo))
 
 // Challenge 6
 function reduce(array, callback, initialValue) {
