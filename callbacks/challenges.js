@@ -41,18 +41,14 @@ console.log(alphabet); //prints 'abcd'
 
 // Challenge 5 // NEED HELP
 const mapWith = (array, callback) => {
-  // let results = []
-  // array.forEach(results.push((x) => callback(x)))
-  // return results
-
-  return array.forEach(x => callback(x))
+  array.forEach(x => callback(x))
 }
 
 console.log(mapWith([2, 4, 6], addTwo))
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
-
+  
 }
 
 
@@ -93,7 +89,7 @@ const multiMap = (arrVals, arrCallbacks) => {
 
 
 // Challenge 11
-function objectFilter(obj, callback) {
+const objectFilter = (obj, callback) => {
 
 }
 
@@ -106,7 +102,7 @@ function objectFilter(obj, callback) {
 
 
 // Challenge 12
-function majority(array, callback) {
+const majority = (array, callback) => {
 
 }
 
@@ -117,7 +113,7 @@ function majority(array, callback) {
 
 
 // Challenge 13
-function prioritize(array, callback) {
+const prioritize = (array, callback) => {
 
 }
 
@@ -128,7 +124,7 @@ function prioritize(array, callback) {
 
 
 // Challenge 14
-function countBy(array, callback) {
+const countBy = (array, callback) => {
 
 }
 
@@ -140,7 +136,7 @@ function countBy(array, callback) {
 
 
 // Challenge 15
-function groupBy(array, callback) {
+const groupBy = (array, callback) => {
 
 }
 
@@ -151,7 +147,7 @@ function groupBy(array, callback) {
 
 
 // Challenge 16
-function goodKeys(obj, callback) {
+const goodKeys = (obj, callback) => {
 
 }
 
@@ -162,7 +158,7 @@ function goodKeys(obj, callback) {
 
 
 // Challenge 17
-function commutative(func1, func2, value) {
+const commutative = (func1, func2, value) => {
 
 }
 
@@ -176,7 +172,7 @@ function commutative(func1, func2, value) {
 
 
 // Challenge 18
-function objFilter(obj, callback) {
+const objFilter = (obj, callback) => {
 
 }
 
@@ -190,7 +186,7 @@ function objFilter(obj, callback) {
 
 
 // Challenge 19
-function rating(arrOfFuncs, value) {
+const rating = (arrOfFuncs, value) => {
 
 }
 
@@ -205,7 +201,7 @@ function rating(arrOfFuncs, value) {
 
 
 // Challenge 20
-function pipe(arrOfFuncs, value) {
+const pipe = (arrOfFuncs, value) => {
 
 }
 
@@ -218,7 +214,7 @@ function pipe(arrOfFuncs, value) {
 
 
 // Challenge 21
-function highestFunc(objOfFuncs, subject) {
+const highestFunc = (objOfFuncs, subject) => {
 
 }
 
@@ -233,19 +229,19 @@ function highestFunc(objOfFuncs, subject) {
 
 
 // Challenge 22
-function combineOperations(startVal, arrOfFuncs) {
+const combineOperations = (startVal, arrOfFuncs) => {
 
 }
 
-function add100(num) {
+const add100 = num => {
   return num + 100;
 }
 
-function divByFive(num) {
+const divByFive = num => {
   return num / 5;
 }
 
-function multiplyByThree(num) {
+const multiplyByThree = num => {
   return num * 3;
 }
 
@@ -255,14 +251,14 @@ function multiplyByThree(num) {
 
 
 // Challenge 23
-function myFunc(array, callback) {
+const myFunc = (array, callback) => {
 
 }
 
 const numbers = [2, 3, 6, 64, 10, 8, 12];
 const evens = [2, 4, 6, 8, 10, 12, 64];
 
-function isOdd(num) {
+const isOdd = num => {
   return (num % 2 !== 0);
 }
 
@@ -272,13 +268,13 @@ function isOdd(num) {
 
 
 // Challenge 24
-function myForEach(array, callback) {
+const myForEach = (array, callback) => {
 
 }
 
 let sum = 0;
 
-function addToSum(num) {
+const addToSum = num => {
   sum += num;
 }
 
