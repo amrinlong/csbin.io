@@ -1,12 +1,12 @@
-console.log('Hello, world!');
+// console.log('Hello, world!');
 
 // Challenge 1
 const addTwo = num => {
   return num + 2
 }
 
-console.log(addTwo(3));
-console.log(addTwo(10));
+// console.log(addTwo(3));
+// console.log(addTwo(10));
 
 
 // Challenge 2
@@ -14,17 +14,38 @@ const addS = word => {
   return word + 's'
 }
 
-console.log(addS('pizza'));
-console.log(addS('bagel'));
+// console.log(addS('pizza'));
+// console.log(addS('bagel'));
 
 
 // Challenge 3
 const map = (array, callback) => {
-  return array.map(x => callback(x))
+  const results = []
+  for (let i = 0; i < array.length; i++) {
+    results.push(callback(array[i]))
+  }
+  return results
 }
 
-console.log(map([1, 2, 3], addTwo));
+// console.log(map([1, 2, 3], addTwo));
 
+// let someNum = 5;
+// let otherNum = someNum; // 5
+
+// someNum += 10;
+// otherNum += 8;
+
+// console.log('someNum -->', someNum);
+// console.log('otherNum -->', otherNum);
+
+// const someArr = ["red", "white"];
+// const otherArr = someArr;
+
+// someArr.push("blue")
+// otherArr.push("green")
+
+// console.log('someArr -->', someArr)
+// console.log('otherArr -->', otherArr)
 
 // Challenge 4
 const forEach = (array, callback) => {
@@ -37,11 +58,11 @@ const letters = ['a', 'b', 'c', 'd'];
 forEach(letters, function(char) {
   alphabet += char;
   });
-console.log(alphabet); //prints 'abcd'
+// console.log(alphabet); //prints 'abcd'
 
 // Challenge 5 // NEED HELP
 const mapWith = (array, callback) => {
-  array.forEach(x => callback(x))
+  return array.map(x => callback(x))
 }
 
 console.log(mapWith([2, 4, 6], addTwo))
