@@ -65,13 +65,25 @@ const mapWith = (array, callback) => {
   return array.map(x => callback(x))
 }
 
-console.log(mapWith([2, 4, 6], addTwo))
+// console.log(mapWith([2, 4, 6], addTwo))
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
+  // let acc = initialValue;
   
+  // for (let i = 0; i < array.length; i++) {
+  //   acc = callback(acc, array[i])
+  // }
+  // return acc
+
+  return array.reduce((acc = array.forEach(x => curVal = callback(x)), curVal = callback()) => {
+
+  }, initialValue)
 }
 
+const nums = [4, 1, 3];
+const add = (a, b) => { return a + b; }
+console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 const intersection = arrays => {
