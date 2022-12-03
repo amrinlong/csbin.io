@@ -69,16 +69,16 @@ const mapWith = (array, callback) => {
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
-  // let acc = initialValue;
+  let acc = initialValue;
   
-  // for (let i = 0; i < array.length; i++) {
-  //   acc = callback(acc, array[i])
-  // }
-  // return acc
+  for (let i = 0; i < array.length; i++) {
+    acc = callback(acc, array[i])
+  }
+  return acc
 
-  return array.reduce((acc = array.forEach(x => curVal = callback(x)), curVal = callback()) => {
+  // return array.reduce((acc = array.forEach(x => curVal = callback(x)), curVal = callback()) => {
 
-  }, initialValue)
+  // }, initialValue)
 }
 
 const nums = [4, 1, 3];
@@ -87,10 +87,22 @@ console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 const intersection = arrays => {
+  let acc = arrays.pop();
 
+	while (arrays.length) {
+	const current = arrays.pop();
+	const newArr = [];
+
+	current.forEach((element) => {
+		if (acc.includes(element)) newArr.push(element);
+	})
+
+	acc = newArr
+	}
+	return acc
 }
 
-// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
 // should log: [5, 15]
 
 
