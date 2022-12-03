@@ -81,34 +81,28 @@ const reduce = (array, callback, initialValue) => {
   // }, initialValue)
 }
 
-const nums = [4, 1, 3];
-const add = (a, b) => { return a + b; }
-console.log(reduce(nums, add, 0)); //-> 8
+// const nums = [4, 1, 3];
+// const add = (a, b) => { return a + b; }
+// console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 const intersection = arrays => {
-  let acc = arrays.pop();
+  let results = []
 
-	while (arrays.length) {
-	const current = arrays.pop();
-	const newArr = [];
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array[i].length; j++) {
 
-	current.forEach((element) => {
-		if (acc.includes(element)) newArr.push(element);
-	})
-
-	acc = newArr
-	}
-	return acc
+    }
+  }
 }
 
-console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
 // should log: [5, 15]
 
 
 // Challenge 8
 const union = arrays => {
-
+  
 }
 
 // console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
