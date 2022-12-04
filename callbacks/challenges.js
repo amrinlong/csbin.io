@@ -69,16 +69,20 @@ const mapWith = (array, callback) => {
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
-  let acc = initialValue;
+  // let acc = initialValue;
   
-  for (let i = 0; i < array.length; i++) {
-    acc = callback(acc, array[i])
-  }
-  return acc
+  // for (let i = 0; i < array.length; i++) {
+  //   acc = callback(acc, array[i])
+  // }
+  // return acc
 
-  // return array.reduce((acc = array.forEach(x => curVal = callback(x)), curVal = callback()) => {
+  let results = initialValue
 
-  // }, initialValue)
+  array.forEach((x, ini) => {
+    results = x + results; 
+  })
+
+  return results
 }
 
 // const nums = [4, 1, 3];
@@ -88,10 +92,12 @@ const reduce = (array, callback, initialValue) => {
 // Challenge 7
 const intersection = arrays => {
   let results = []
+  let obj = {}
 
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array[i].length; j++) {
-
+  for (let i = 0; i < arrays.length; i++) {
+    for (let j = 0; j < arrays[i].length; j++) {
+      obj[arrays[i][j]] = +1
+      console.log(obj)
     }
   }
 }
