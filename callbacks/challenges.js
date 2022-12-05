@@ -91,11 +91,20 @@ const reduce = (array, callback, initialValue) => {
 
 // Challenge 7
 const intersection = arrays => {
-  // return result = arrays.reduce((a, b) => {
-  //   a.filter(c => b.includes(c))
-  // }) 
+  // let results = 'results'
 
+  // arrays.filter((x) => {
+  //   console.log(x)
+    
+  // })
+
+  // arrays.reduce((x, y, z) => {
+  //   console.log(x, y, z)
+  // })
   
+  
+
+  return results
 }
 
 console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
