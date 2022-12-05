@@ -69,42 +69,42 @@ const mapWith = (array, callback) => {
 
 // Challenge 6
 const reduce = (array, callback, initialValue) => {
-  // let acc = initialValue;
+  // let results = initialValue;
   
   // for (let i = 0; i < array.length; i++) {
-  //   acc = callback(acc, array[i])
+  //   results = callback(results, array[i])
   // }
-  // return acc
+  // return results
 
   let results = initialValue
 
-  array.forEach((x, ini) => {
+  array.forEach((x) => {
     results = x + results; 
   })
 
   return results
 }
 
-// const nums = [4, 1, 3];
-// const add = (a, b) => { return a + b; }
-// console.log(reduce(nums, add, 0)); //-> 8
+const nums = [4, 1, 3];
+const add = (a, b) => { return a + b; }
+console.log(reduce(nums, add, 0)); //-> 8
 
 // Challenge 7
 const intersection = arrays => {
-  let results = []
-  let obj = {}
+  // let results = []
+  // let obj = {}
 
-  for (let i = 0; i < arrays.length; i++) {
-    for (let j = 0; j < arrays[i].length; j++) {
-      obj[arrays[i][j]] = +1
-      
-    }
-  }
-  console.log(Object.keys(obj))
-  return results
+  // for (let i = 0; i < arrays.length; i++) {
+  //   for (let j = 0; j < arrays[i].length; j++) {
+  //     obj[arrays[i][j]] = () => {
+
+  //     }
+  //     console.log(obj)
+  //   }
+  // }
 }
 
-console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
 // should log: [5, 15]
 
 
