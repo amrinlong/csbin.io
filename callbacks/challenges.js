@@ -290,7 +290,6 @@ const countBy = (array, cb) => {
 
 
 // Challenge 15
-<<<<<<< HEAD
 const groupBy = (array, cb) => {
   const obj = {}
   /* 
@@ -310,6 +309,7 @@ const groupBy = (array, cb) => {
   })
 
   return obj
+}
 
 const decimals = [1.3, 2.1, 2.4];
 const floored = num => { 
