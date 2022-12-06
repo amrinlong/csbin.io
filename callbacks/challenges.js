@@ -95,43 +95,50 @@ const intersection = arrays => {
   //   a.filter(c => b.includes(c))
   // }) 
 
-  const results = []
-  const obj = {}
+  // const results = []
+  // const obj = {}
 
-  arrays.forEach((subArr) => {
-    subArr.forEach((item) => {
-        if (!obj[item]) {
-            obj[item] = 1
-            // console.log(obj)
-        } else {
-            obj[item] = obj[item] + 1
-        }
-        
-    })
-  })
+  // arrays.forEach((subArr) => {
+  //   subArr.forEach((item) => {
+  //       if (!obj[item]) {
+  //           obj[item] = 1
+  //       } else {
+  //           obj[item] = obj[item] + 1
+  //       }
+  //   })
+  // })
 
-  const objEntries = Object.entries(obj)
+  // const objEntries = Object.entries(obj)
   
-  for (let i = 0; i < objEntries.length; i++) {
-    if (objEntries[i][1] === arrays.length) {
-        results.push(+objEntries[i][0])
-    }
-  }
+  // for (let i = 0; i < objEntries.length; i++) {
+  //   if (objEntries[i][1] === arrays.length) {
+  //       results.push(+objEntries[i][0])
+  //   }
+  // }
 
-  return results
+  // return results
   
 }
 
-console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
+// console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
 // should log: [5, 15]
 
 
 // Challenge 8
 const union = arrays => {
-  
+  const merge = []
+
+  for (let i = 0; i < arrays.length; i++) {
+    arrays[i].forEach((x) => {
+      merge.push(x)
+    })
+  }
+
+
+  console.log(merge)
 }
 
-// console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
+console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
