@@ -263,20 +263,29 @@ const prioritize = (array, cb) => {
 const startsWithS = str => { 
   return str[0] === 's' || str[0] === 'S'; 
 };
-console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); 
+// console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); 
 // should log: ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
 // Challenge 14
-const countBy = (array, callback) => {
+const countBy = (array, cb) => {
+  let obj = {}
+  array.forEach((x) => {
+    if (cb(x)) {
+      if (!obj['even']) {
+        obj['even'] = obj['even'] + 1;
+      }
+    }
+  })
 
+  console.log(obj)
 }
 
-// /*** Uncomment these to check your work! ***/
-// console.log(countBy([1, 2, 3, 4, 5], function(num) {
-// if (num % 2 === 0) return 'even';
-// else return 'odd';
-// })); // should log: { odd: 3, even: 2 }
+console.log(countBy([1, 2, 3, 4, 5], num => {
+  if (num % 2 === 0) return 'even';
+  else return 'odd';
+})); 
+// should log: { odd: 3, even: 2 }
 
 
 // Challenge 15
