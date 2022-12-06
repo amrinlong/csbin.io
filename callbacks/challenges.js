@@ -196,22 +196,34 @@ const multiMap = (arrVals, cb) => {
   return obj
 }
 
-console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
+// console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
 
 // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 
 // Challenge 11
 const objectFilter = (obj, callback) => {
+  const results = {}
 
+  for (let key in obj) {
+    if (!results[key] && cb(key) === obj[key]) {
+      results[key] = cb(key)
+    }
+  }
+
+  return results
 }
 
-// const cities = {
-// London: 'LONDON',
-// LA: 'Los Angeles',
-// Paris: 'PARIS',
-// };
-// console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
+const cities = {
+London: 'LONDON',
+LA: 'Los Angeles',
+Paris: 'PARIS',
+};
+console.log(objectFilter(cities, city => city.toUpperCase())) 
+// console.log(objectFilter(cities, (city) => {
+//   return city.toUpperCase()
+// }))
+// Should log { London: 'LONDON', Paris: 'PARIS'}
 
 
 // Challenge 12
