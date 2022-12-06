@@ -202,7 +202,7 @@ const multiMap = (arrVals, cb) => {
 
 
 // Challenge 11
-const objectFilter = (obj, callback) => {
+const objectFilter = (obj, cb) => {
   const results = {}
 
   for (let key in obj) {
