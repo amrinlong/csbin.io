@@ -133,7 +133,7 @@ const union = arrays => {
       merge.push(x)
     })
   }
-
+  
 
   console.log(merge)
 }
