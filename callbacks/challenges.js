@@ -245,14 +245,26 @@ const majority = (array, cb) => {
 
 
 // Challenge 13
-const prioritize = (array, callback) => {
+const prioritize = (array, cb) => {
+  const results = []
+  const rejects = []
 
+  array.forEach((x) => {
+    if (cb(x)) {
+      results.push(x)
+    } else {
+      rejects.push(x)
+    }
+  })
+
+  return results.concat(rejects)
 }
 
-// /*** Uncomment these to check your work! ***/
-// const startsWithS = function(str) { return str[0] === 's' || str[0] === 'S'; };
-// console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
-['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+const startsWithS = str => { 
+  return str[0] === 's' || str[0] === 'S'; 
+};
+console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); 
+// should log: ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
 
 
 // Challenge 14
