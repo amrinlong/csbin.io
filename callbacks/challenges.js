@@ -291,11 +291,7 @@ const countBy = (array, cb) => {
 
 // Challenge 15
 const groupBy = (array, callback) => {
-  const obj = {}
 
-  array.forEach((x) => {
-    
-  })
 }
 
 const decimals = [1.3, 2.1, 2.4];
