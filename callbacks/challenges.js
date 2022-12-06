@@ -292,14 +292,20 @@ const countBy = (array, cb) => {
 // Challenge 15
 const groupBy = (array, cb) => {
   const obj = {}
+  /* 
+  {
+    1: [1.3],
+    2: [2.1].concat[]
+  }
+  */
 
   array.forEach((x) => {
-    if (obj[cb(x)]) {
-      obj[cb(x)] = obj[cb(x)].push(x)
-    } else {
-      obj[cb(x)] = [x]
-    }
     
+    if (!obj[cb(x)]) {
+      obj[cb(x)] = [x]
+    } else {
+      obj[cb(x)] = obj[cb(x)].concat([x])
+    }
   })
 
   return obj
