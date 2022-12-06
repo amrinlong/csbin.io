@@ -1,13 +1,29 @@
 
 // Challenge 7
 const intersection = arrays => {
-  let results = []
-  let objResults = {}
+  const results = []
+  const obj = {}
 
-  arrays.forEach((x, y) => {
-    console.log(arrays[y])
+  arrays.forEach((subArr) => {
+    subArr.forEach((item) => {
+        if (!obj[item]) {
+            obj[item] = 1
+            // console.log(obj)
+        } else {
+            obj[item] = obj[item] + 1
+        }
+        
+    })
   })
+
+  const objEntries = Object.entries(obj)
   
+  for (let i = 0; i < objEntries.length; i++) {
+    if (objEntries[i][1] === arrays.length) {
+        results.push(+objEntries[i][0])
+    }
+  }
+
   return results
 }
 
