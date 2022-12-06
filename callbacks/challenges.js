@@ -127,15 +127,26 @@ const intersection = arrays => {
 // Challenge 8
 const union = arrays => {
   const merge = []
+  const obj = {}
+  /* 
+    [
+      5, 10,  15, 15, 88, 1,
+      5,  7, 100, 15, 10, 1,
+      5
+    ]
+  */
 
   for (let i = 0; i < arrays.length; i++) {
     arrays[i].forEach((x) => {
-      merge.push(x)
+      if (!obj[arrays[i][x]]) {
+        obj[arrays[i][x]] = arrays[i][x]
+      } else {
+        obj[arrays[i][x]] = arrays[i][x]
+      }
     })
   }
-  
 
-  console.log(merge)
+  console.log(obj)
 }
 
 console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
