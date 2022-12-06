@@ -282,10 +282,10 @@ const countBy = (array, cb) => {
   console.log(obj)
 }
 
-console.log(countBy([1, 2, 3, 4, 5], num => {
-  if (num % 2 === 0) return 'even';
-  else return 'odd';
-})); 
+// console.log(countBy([1, 2, 3, 4, 5], num => {
+//   if (num % 2 === 0) return 'even';
+//   else return 'odd';
+// })); 
 // should log: { odd: 3, even: 2 }
 
 
@@ -294,10 +294,12 @@ const groupBy = (array, callback) => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
-// const decimals = [1.3, 2.1, 2.4];
-// const floored = function(num) { return Math.floor(num); };
-// console.log(groupBy(decimals, floored)); // should log: { 1: [1.3], 2: [2.1, 2.4] }
+const decimals = [1.3, 2.1, 2.4];
+const floored = num => { 
+  return Math.floor(num); 
+};
+console.log(groupBy(decimals, floored)); 
+// should log: { 1: [1.3], 2: [2.1, 2.4] }
 
 
 // Challenge 16
