@@ -95,21 +95,7 @@ const intersection = arrays => {
   //   a.filter(c => b.includes(c))
   // }) 
 
-  let results = []
-
-  arrays.forEach((x, y, z) => { // x = [5, 10, 15, 20], y = 0, z = [5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]
-    console.log(x, y, z)
-    x.forEach((a, b, c) => { // a = value of indexed position, b = indexed position, c = whole array
-      // console.log(`subArray a = ${a}`) = 5
-      // console.log(`subArray b = ${b}`)
-      // console.log(`subArray c = ${c}`) 
-
-    })
-
-    // join all arrays, log each number and if value count equals to arrays.length
-  })
-
-  return results
+  
 }
 
 console.log(intersection([[5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]]));
