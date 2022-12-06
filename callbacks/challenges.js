@@ -214,12 +214,12 @@ const objectFilter = (obj, cb) => {
   return results
 }
 
-const cities = {
-London: 'LONDON',
-LA: 'Los Angeles',
-Paris: 'PARIS',
-};
-console.log(objectFilter(cities, city => city.toUpperCase())) 
+// const cities = {
+// London: 'LONDON',
+// LA: 'Los Angeles',
+// Paris: 'PARIS',
+// };
+// // console.log(objectFilter(cities, city => city.toUpperCase())) 
 // console.log(objectFilter(cities, (city) => {
 //   return city.toUpperCase()
 // }))
@@ -227,14 +227,21 @@ console.log(objectFilter(cities, city => city.toUpperCase()))
 
 
 // Challenge 12
-const majority = (array, callback) => {
+const majority = (array, cb) => {
+  let trueCount = 0;
 
+  array.forEach((x) => {
+    if (cb(x)) {
+      trueCount = trueCount + 1
+    }
+  })
+
+  return (trueCount > (array.length / 2))
 }
 
-// /*** Uncomment these to check your work! ***/
-// const isOdd = function(num) { return num % 2 === 1; };
-// console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
-// console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+// const isOd = num => { return num % 2 === 1; };
+// console.log(majority([1, 2, 3, 4, 5], isOd)); // should log: true
+// console.log(majority([2, 3, 4, 5], isOd)); // should log: false
 
 
 // Challenge 13
