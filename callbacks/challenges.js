@@ -148,9 +148,14 @@ const union = arrays => {
   // })
 
   // return merge
+
+
+  // arrays.reduce((previousVal, currentValue, currentIndex, arrayReadOnly) => {
+    
+  // })
 }
 
-console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
+// console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 
@@ -159,8 +164,15 @@ const objOfMatches = (array1, array2, callback) => {
   const obj = {}
 
   array1.forEach((x) => {
-    
+    array2.forEach((y) => {
+      if (!obj[x]) {
+        if (callback(x) === y) {
+          obj[x] = y
+        }
+      }
+    })
   })
+  return obj
 }
 
 console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
