@@ -269,14 +269,9 @@ const startsWithS = str => {
 
 // Challenge 14
 const countBy = (array, cb) => {
-  let obj = {}
-  array.forEach((x) => {
-    if (cb(x)) {
-      if (!obj['even']) {
-        obj['even'] = obj['even'] + 1;
-      }
-    }
-  })
+  let obj = {even: 0, odd: 0}
+
+  
 
   console.log(obj)
 }
