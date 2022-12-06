@@ -175,19 +175,25 @@ const objOfMatches = (array1, array2, callback) => {
   return obj
 }
 
-console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
+// console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 
 // Challenge 10
-const multiMap = (arrVals, arrCallbacks) => {
+const multiMap = (arrVals, cb) => {
   const obj = {}
 
   arrVals.forEach((x) => {
-    arrCallbacks.forEach((y) => {
-      
-    })
+    const arr = []
+    for (let i = 0; i < cb.length; i++) {
+      arr.push(cb[i](x))
+    }
+    if (!obj[x]) {
+      obj[x] = arr
+    }
   })
+
+  return obj
 }
 
 console.log(multiMap(['catfood', 'glue', 'beer'], [function(str) { return str.toUpperCase(); }, function(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }, function(str) { return str + str; }]));
