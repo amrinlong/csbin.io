@@ -126,28 +126,28 @@ const intersection = arrays => {
 
 // Challenge 8
 const union = arrays => {
-  const merge = []
-  /* 
-    [
-      5, 10,  15, 15, 88, 1,
-      5,  7, 100, 15, 10, 1,
-      5
-    ]
-  */
+  // const merge = []
+  // /* 
+  //   [
+  //     5, 10,  15, 15, 88, 1,
+  //     5,  7, 100, 15, 10, 1,
+  //     5
+  //   ]
+  // */
 
-  for (let i = 0; i < arrays.length; i++) {
-    arrays[i].forEach((x) => {
-      if (!merge.includes(x)) {
-        merge.push(x)
-      }
-    })
-  }
+  // for (let i = 0; i < arrays.length; i++) {
+  //   arrays[i].forEach((x) => {
+  //     if (!merge.includes(x)) {
+  //       merge.push(x)
+  //     }
+  //   })
+  // }
 
   // return merge.sort((a, b) => { // this returns the nums in array in numerical order
   //   return a - b
   // })
 
-  return merge
+  // return merge
 }
 
 console.log(union([[5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]]));
@@ -159,7 +159,7 @@ const objOfMatches = (array1, array2, callback) => {
 
 }
 
-// console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
+console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function(str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 
