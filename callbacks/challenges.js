@@ -95,6 +95,30 @@ const intersection = arrays => {
   //   a.filter(c => b.includes(c))
   // }) 
 
+  const results = []
+  const obj = {}
+
+  arrays.forEach((subArr) => {
+    subArr.forEach((item) => {
+        if (!obj[item]) {
+            obj[item] = 1
+            // console.log(obj)
+        } else {
+            obj[item] = obj[item] + 1
+        }
+        
+    })
+  })
+
+  const objEntries = Object.entries(obj)
+  
+  for (let i = 0; i < objEntries.length; i++) {
+    if (objEntries[i][1] === arrays.length) {
+        results.push(+objEntries[i][0])
+    }
+  }
+
+  return results
   
 }
 
