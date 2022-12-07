@@ -311,28 +311,31 @@ const groupBy = (array, cb) => {
   return obj
 }
 
-const decimals = [1.3, 2.1, 2.4];
-const floored = num => { 
-  return Math.floor(num); 
-};
-console.log(groupBy(decimals, floored)); 
+// const decimals = [1.3, 2.1, 2.4];
+// const floored = num => { 
+//   return Math.floor(num); 
+// };
+// console.log(groupBy(decimals, floored)); 
 // should log: { 1: [1.3], 2: [2.1, 2.4] }
 
 
 // Challenge 16
-const goodKeys = (obj, callback) => {
+const goodKeys = (obj, cb) => {
   let results = []
 
   for (let key in obj) {
-    
+    if (cb(obj[key])) {
+      results.push(key)
+    }
   }
-  
+  return results
 }
 
-// /*** Uncomment these to check your work! ***/
-const sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
-const startsWithBird = function(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
-console.log(goodKeys(sunny, startsWithBird)); 
+// const sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
+// const startsWithBird = str => { 
+//   return str.slice(0, 4).toLowerCase() === 'bird'; 
+// };
+// console.log(goodKeys(sunny, startsWithBird)); 
 // should log: ['charlie', 'dee']
 
 
