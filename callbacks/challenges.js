@@ -323,6 +323,9 @@ console.log(groupBy(decimals, floored));
 const goodKeys = (obj, callback) => {
   let results = []
 
+  for (let key in obj) {
+    
+  }
   
 }
 
