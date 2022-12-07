@@ -308,7 +308,8 @@ const groupBy = (array, cb) => {
     }
   })
 
-  return objs
+  return obj
+}
 
 const decimals = [1.3, 2.1, 2.4];
 const floored = num => { 
