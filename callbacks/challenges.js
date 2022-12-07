@@ -321,13 +321,16 @@ console.log(groupBy(decimals, floored));
 
 // Challenge 16
 const goodKeys = (obj, callback) => {
+  let results = []
 
+  
 }
 
 // /*** Uncomment these to check your work! ***/
-// const sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
-// const startsWithBird = function(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
-// console.log(goodKeys(sunny, startsWithBird)); // should log: ['charlie', 'dee']
+const sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
+const startsWithBird = function(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
+console.log(goodKeys(sunny, startsWithBird)); 
+// should log: ['charlie', 'dee']
 
 
 // Challenge 17
