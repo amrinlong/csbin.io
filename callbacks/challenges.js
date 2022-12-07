@@ -341,9 +341,7 @@ const goodKeys = (obj, cb) => {
 
 // Challenge 17
 const commutative = (cb1, cb2, x) => {
-  const total = cb1(x) + cb2(x)
-
-  return (cb2(x) + cb1(x) === total)
+  return cb1(cb2(x)) === cb2(cb1(x))
 }
 
 const multBy3 = n => n * 3;
