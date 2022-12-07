@@ -364,28 +364,39 @@ const objFilter = (obj, cb) => {
   return results
 }
 
-const startingObj = {}; // { 6 : 3, 2 : 1, 12 : 4, }
-startingObj[6] = 3;
-startingObj[2] = 1;
-startingObj[12] = 4;
-const half = n => n / 2;
-console.log(objFilter(startingObj, half)); 
+// const startingObj = {}; // { 6 : 3, 2 : 1, 12 : 4, }
+// startingObj[6] = 3;
+// startingObj[2] = 1;
+// startingObj[12] = 4;
+// const half = n => n / 2;
+// console.log(objFilter(startingObj, half)); 
 // should log: { 2: 1, 6: 3 }
 
 
 // Challenge 19
 const rating = (arrOfFuncs, value) => {
+  const trueCount = 0;
+  const results = arrOfFuncs.length / trueCount;
 
+  console.log((arrOfFuncs[0] = (value) => {
+    
+  }))
+  // arrOfFuncs.forEach((x) => {
+  //   console.log(arrOfFuncs[x])
+  //   if (arrOfFuncs[x]) {
+  //     trueCount += 1;
+  //   }
+  // })
+    // return results
 }
 
-// /*** Uncomment these to check your work! ***/
-// const isEven = n => n % 2 === 0;
-// const greaterThanFour = n => n > 4;
-// const isSquare = n => Math.sqrt(n) % 1 === 0;
-// const hasSix = n => n.toString().includes('6');
-// const checks = [isEven, greaterThanFour, isSquare, hasSix];
-// console.log(rating(checks, 64)); // should log: 100
-// console.log(rating(checks, 66)); // should log: 75
+const isEven = n => n % 2 === 0;
+const greaterThanFour = n => n > 4;
+const isSquare = n => Math.sqrt(n) % 1 === 0;
+const hasSix = n => n.toString().includes('6');
+const checks = [isEven, greaterThanFour, isSquare, hasSix];
+console.log(rating(checks, 64)); // should log: 100
+console.log(rating(checks, 66)); // should log: 75
 
 
 // Challenge 20
