@@ -344,25 +344,32 @@ const commutative = (cb1, cb2, x) => {
   return cb1(cb2(x)) === cb2(cb1(x))
 }
 
-const multBy3 = n => n * 3;
-const divBy4 = n => n / 4;
-const subtract5 = n => n - 5;
-console.log(commutative(multBy3, divBy4, 11)); // should log: true
-console.log(commutative(multBy3, subtract5, 10)); // should log: false
-console.log(commutative(divBy4, subtract5, 48)); // should log: false
+// const multBy3 = n => n * 3;
+// const divBy4 = n => n / 4;
+// const subtract5 = n => n - 5;
+// console.log(commutative(multBy3, divBy4, 11)); // should log: true
+// console.log(commutative(multBy3, subtract5, 10)); // should log: false
+// console.log(commutative(divBy4, subtract5, 48)); // should log: false
 
 
 // Challenge 18
-const objFilter = (obj, callback) => {
+const objFilter = (obj, cb) => {
+  let results = {}
 
+  for (let key in obj) {
+    if (cb(key) === obj[key]) {
+      results[key] = obj[key]
+    }
+  }
+  return results
 }
 
-// const startingObj = {};
-// startingObj[6] = 3;
-// startingObj[2] = 1;
-// startingObj[12] = 4;
-// const half = n => n / 2;
-// console.log(objFilter(startingObj, half)); 
+const startingObj = {}; // { 6 : 3, 2 : 1, 12 : 4, }
+startingObj[6] = 3;
+startingObj[2] = 1;
+startingObj[12] = 4;
+const half = n => n / 2;
+console.log(objFilter(startingObj, half)); 
 // should log: { 2: 1, 6: 3 }
 
 
