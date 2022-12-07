@@ -290,7 +290,6 @@ const countBy = (array, cb) => {
 
 
 // Challenge 15
-<<<<<<< HEAD
 const groupBy = (array, cb) => {
   const obj = {}
   /* 
@@ -309,7 +308,7 @@ const groupBy = (array, cb) => {
     }
   })
 
-  return obj
+  return objs
 
 const decimals = [1.3, 2.1, 2.4];
 const floored = num => { 
@@ -454,4 +453,5 @@ const addToSum = num => {
 // /*** Uncomment these to check your work! ***/
 // const nums = [1, 2, 3];
 // myForEach(nums, addToSum);
-// console.log(sum); // Should output 6
+// console.log(sum); 
+// Should output 6
