@@ -340,17 +340,18 @@ const goodKeys = (obj, cb) => {
 
 
 // Challenge 17
-const commutative = (func1, func2, value) => {
+const commutative = (cb1, cb2, x) => {
+  const total = cb1(x) + cb2(x)
 
+  return (cb2(x) + cb1(x) === total)
 }
 
-// /*** Uncomment these to check your work! ***/
-// const multBy3 = n => n * 3;
-// const divBy4 = n => n / 4;
-// const subtract5 = n => n - 5;
-// console.log(commutative(multBy3, divBy4, 11)); // should log: true
-// console.log(commutative(multBy3, subtract5, 10)); // should log: false
-// console.log(commutative(divBy4, subtract5, 48)); // should log: false
+const multBy3 = n => n * 3;
+const divBy4 = n => n / 4;
+const subtract5 = n => n - 5;
+console.log(commutative(multBy3, divBy4, 11)); // should log: true
+console.log(commutative(multBy3, subtract5, 10)); // should log: false
+console.log(commutative(divBy4, subtract5, 48)); // should log: false
 
 
 // Challenge 18
@@ -358,13 +359,13 @@ const objFilter = (obj, callback) => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // const startingObj = {};
 // startingObj[6] = 3;
 // startingObj[2] = 1;
 // startingObj[12] = 4;
 // const half = n => n / 2;
-// console.log(objFilter(startingObj, half)); // should log: { 2: 1, 6: 3 }
+// console.log(objFilter(startingObj, half)); 
+// should log: { 2: 1, 6: 3 }
 
 
 // Challenge 19
