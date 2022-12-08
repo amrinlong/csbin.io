@@ -444,14 +444,16 @@ const groupOfFuncs = {};
 groupOfFuncs.double = n => n * 2;
 groupOfFuncs.addTen = n => n + 10;
 groupOfFuncs.inverse = n => n * -1;
-console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
-console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
-console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
+// console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
+// console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
+// console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
 
 
 // Challenge 22
 const combineOperations = (startVal, arrOfFuncs) => {
-
+  arrOfFuncs.reduce((acc, cur) => {
+    acc = acc + cur
+  }, startVal)
 }
 
 const add100 = num => {
@@ -466,8 +468,8 @@ const multiplyByThree = num => {
   return num * 3;
 }
 
-// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
-// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
 
 // Challenge 23
