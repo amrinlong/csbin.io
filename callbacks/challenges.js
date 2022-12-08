@@ -282,13 +282,13 @@ const countBy = (array, cb) => {
   return obj
 }
 
-console.log(countBy([1, 2, 3, 4, 5], num => {
-  if (num % 2 === 0) return 'even';
-  else return 'odd';
-})); 
-console.log(countBy(['heads', 'tails', 'heads', 'heads'], (str) => {
-  return str
-}))
+// console.log(countBy([1, 2, 3, 4, 5], num => {
+//   if (num % 2 === 0) return 'even';
+//   else return 'odd';
+// })); 
+// console.log(countBy(['heads', 'tails', 'heads', 'heads'], (str) => {
+//   return str
+// }))
 // should log: { odd: 3, even: 2 }
 
 
@@ -412,17 +412,41 @@ const capAddlowRepeat = [capitalize, addLowerCase, repeat];
 
 
 // Challenge 21
-const highestFunc = (objOfFuncs, subject) => {
+const highestFunc = (objOfFuncs, subject) => { // {double, addTen, inverse}, 5
+  let results = {} // double: 10, addTen: 15, inverse: -5
+  
+  // objOfFuncs.reduce((acc, cur) => { // acc = 0, cur = 
+  //   if (results[0])
+  //   return 
+  // }, 0)
 
+  for (let key in objOfFuncs) {
+    results[key] = objOfFuncs[key](subject)
+  }
+
+  return Object.keys(results).reduce((acc, cur) => { 
+    if (results[acc] > results[cur]) {
+        return acc
+    } else {
+      return cur
+    }
+    // return results[acc] > results[cur] ? acc : cur 
+  })
 }
 
-// const groupOfFuncs = {};
-// groupOfFuncs.double = n => n * 2;
-// groupOfFuncs.addTen = n => n + 10;
-// groupOfFuncs.inverse = n => n * -1;
-// console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
-// console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
-// console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
+const groupOfFuncs = {};
+/* groupOfFuncs = {
+  double : (x) => { return x * 2 },
+  addTen : (x) => { return x + 10 },
+  inverse : (x) => { return x * -1 }
+}
+ */
+groupOfFuncs.double = n => n * 2;
+groupOfFuncs.addTen = n => n + 10;
+groupOfFuncs.inverse = n => n * -1;
+console.log(highestFunc(groupOfFuncs, 5)); // should log: 'addTen'
+console.log(highestFunc(groupOfFuncs, 11)); // should log: 'double'
+console.log(highestFunc(groupOfFuncs, -20)); // should log: 'inverse'
 
 
 // Challenge 22
