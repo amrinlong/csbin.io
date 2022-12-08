@@ -451,7 +451,7 @@ groupOfFuncs.inverse = n => n * -1;
 
 // Challenge 22
 const combineOperations = (startVal, arrOfFuncs) => { 
-  
+
   arrOfFuncs.reduce((acc, cur) => { // acc = 0; cur = add100()
     acc = acc + cur(startVal) // acc = 0 + 100 => acc = 100
     return acc
@@ -468,12 +468,21 @@ const multiplyByThree = num => {
   return num * 3;
 }
 
-console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
-console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
 
 // Challenge 23
-const myFunc = (array, callback) => {
+const myFunc = (array, cb) => {
+  console.log(array.sort((a,b)=>a-b))
+
+  let sortedArr = array.sort((a,b) => a - b)
+
+  array.forEach((num) => {
+    if (cb(num)) {
+      return array[]
+    }
+  })
 
 }
 
@@ -484,7 +493,7 @@ const isOdd = num => {
   return (num % 2 !== 0);
 }
 
-// console.log(myFunc(numbers, isOdd)); // Output should be 1
+console.log(myFunc(numbers, isOdd)); // Output should be 1
 // console.log(myFunc(evens, isOdd)); // Output should be -1
 
 
