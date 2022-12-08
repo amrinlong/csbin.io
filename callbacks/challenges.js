@@ -282,10 +282,13 @@ const countBy = (array, cb) => {
   console.log(obj)
 }
 
-// console.log(countBy([1, 2, 3, 4, 5], num => {
-//   if (num % 2 === 0) return 'even';
-//   else return 'odd';
-// })); 
+console.log(countBy([1, 2, 3, 4, 5], num => {
+  if (num % 2 === 0) return 'even';
+  else return 'odd';
+})); 
+console.log(countBy(['heads', 'tails', 'heads', 'heads'], (str) => {
+  return str
+}))
 // should log: { odd: 3, even: 2 }
 
 
@@ -375,16 +378,15 @@ const objFilter = (obj, cb) => {
 
 // Challenge 19
 const rating = (arrOfFuncs, value) => {
-  let trueCount = 0; // 0
   
-
-  for (let i = 0; i < arrOfFuncs.length; i++) {
-    if (arrOfFuncs[i](value)) {
-      trueCount = trueCount + 1;
+  const truthCount = arrOfFuncs.reduce((count, cb) => { 
+    if (cb(value)) {
+      return count + 1;
     }
-  } 
+    return count
+  }, 0) 
 
-    return (trueCount / arrOfFuncs.length) * 100
+  return (truthCount / arrOfFuncs.length) * 100
 }
 
 const isEven = n => n % 2 === 0;
@@ -394,20 +396,19 @@ const hasSix = n => n.toString().includes('6');
 const checks = [isEven, greaterThanFour, isSquare, hasSix];
 console.log(rating(checks, 64)); // should log: 100
 console.log(rating(checks, 66)); // should log: 75
-// console.log(rating(checks, 75));
 
 
 // Challenge 20
 const pipe = (arrOfFuncs, value) => {
-
+  return arrOfFuncs.reduce((acc, cur) => cur(acc), value) 
 }
 
-// /*** Uncomment these to check your work! ***/
-// const capitalize = str => str.toUpperCase();
-// const addLowerCase = str => str + str.toLowerCase();
-// const repeat = str => str + str;
-// const capAddlowRepeat = [capitalize, addLowerCase, repeat];
-// console.log(pipe(capAddlowRepeat, 'cat')); // should log: 'CATcatCATcat'
+const capitalize = str => str.toUpperCase();
+const addLowerCase = str => str + str.toLowerCase();
+const repeat = str => str + str;
+const capAddlowRepeat = [capitalize, addLowerCase, repeat];
+// console.log(pipe(capAddlowRepeat, 'cat')); 
+// should log: 'CATcatCATcat'
 
 
 // Challenge 21
@@ -415,7 +416,6 @@ const highestFunc = (objOfFuncs, subject) => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // const groupOfFuncs = {};
 // groupOfFuncs.double = n => n * 2;
 // groupOfFuncs.addTen = n => n + 10;
@@ -442,7 +442,6 @@ const multiplyByThree = num => {
   return num * 3;
 }
 
-// /*** Uncomment these to check your work! ***/
 // console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
 // console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
@@ -459,7 +458,6 @@ const isOdd = num => {
   return (num % 2 !== 0);
 }
 
-// /*** Uncomment these to check your work! ***/
 // console.log(myFunc(numbers, isOdd)); // Output should be 1
 // console.log(myFunc(evens, isOdd)); // Output should be -1
 
@@ -475,7 +473,6 @@ const addToSum = num => {
   sum += num;
 }
 
-// /*** Uncomment these to check your work! ***/
 // const nums = [1, 2, 3];
 // myForEach(nums, addToSum);
 // console.log(sum); 
