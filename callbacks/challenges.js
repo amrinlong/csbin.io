@@ -450,20 +450,20 @@ groupOfFuncs.inverse = n => n * -1;
 
 
 // Challenge 22
-const combineOperations = (startVal, arrOfFuncs) => {
-  arrOfFuncs.reduce((acc, cur) => {
-    acc = acc + cur
+const combineOperations = (startVal, arrOfFuncs) => { 
+  
+  arrOfFuncs.reduce((acc, cur) => { // acc = 0; cur = add100()
+    acc = acc + cur(startVal) // acc = 0 + 100 => acc = 100
+    return acc
   }, startVal)
 }
 
 const add100 = num => {
   return num + 100;
 }
-
 const divByFive = num => {
   return num / 5;
 }
-
 const multiplyByThree = num => {
   return num * 3;
 }
