@@ -269,17 +269,17 @@ const startsWithS = str => {
 
 // Challenge 14
 const countBy = (array, cb) => {
-  let obj = {odd: 0, even: 0,}
+  let obj = {}
 
-  array.forEach((x) => {
-    if (cb(x) === 'even') {
-      obj['even'] = obj['even'] + 1;
-    } else if (cb(x) === 'odd') {
-      obj['odd'] = obj['odd'] + 1
+  array.forEach((item) => {
+    if (!obj[cb(item)]) {
+      obj[cb(item)] = 1
+    } else {
+      obj[cb(item)] = obj[cb(item)] + 1;
     }
   })
 
-  console.log(obj)
+  return obj
 }
 
 console.log(countBy([1, 2, 3, 4, 5], num => {
@@ -394,8 +394,8 @@ const greaterThanFour = n => n > 4;
 const isSquare = n => Math.sqrt(n) % 1 === 0;
 const hasSix = n => n.toString().includes('6');
 const checks = [isEven, greaterThanFour, isSquare, hasSix];
-console.log(rating(checks, 64)); // should log: 100
-console.log(rating(checks, 66)); // should log: 75
+// console.log(rating(checks, 64)); // should log: 100
+// console.log(rating(checks, 66)); // should log: 75
 
 
 // Challenge 20
