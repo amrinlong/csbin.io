@@ -451,10 +451,13 @@ const combineOperations = (startVal, arrOfFuncs) => {
 // startVal = 0 ; arrOfFuncs = [add100, divByFive, multiplyByThree]
 let results = startVal;
 
+// for (let i = 0; i < arrOfFuncs.length; i++) {
+//   results = arrOfFuncs[i](results)
+// }
 
-for (let i = 0; i < arrOfFuncs.length; i++) {
-  results = arrOfFuncs[i](results)
-}
+arrOfFuncs.reduce((acc, cur, idx) => {
+  results = cur(results)
+}, results)
 
 return results
 }
