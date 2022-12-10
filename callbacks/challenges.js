@@ -400,7 +400,9 @@ const checks = [isEven, greaterThanFour, isSquare, hasSix];
 
 // Challenge 20
 const pipe = (arrOfFuncs, value) => {
-  return arrOfFuncs.reduce((acc, cur) => cur(acc), value) 
+  return arrOfFuncs.reduce((acc, cur) => { 
+    return cur(acc), value
+  }) 
 }
 
 const capitalize = str => str.toUpperCase();
@@ -415,11 +417,6 @@ const capAddlowRepeat = [capitalize, addLowerCase, repeat];
 const highestFunc = (objOfFuncs, subject) => { // {double, addTen, inverse}, 5
   let results = {} // double: 10, addTen: 15, inverse: -5
   
-  // objOfFuncs.reduce((acc, cur) => { // acc = 0, cur = 
-  //   if (results[0])
-  //   return 
-  // }, 0)
-
   for (let key in objOfFuncs) {
     results[key] = objOfFuncs[key](subject)
   }
@@ -451,11 +448,17 @@ groupOfFuncs.inverse = n => n * -1;
 
 // Challenge 22
 const combineOperations = (startVal, arrOfFuncs) => { 
+// startVal = 0 ; arrOfFuncs = [add100, divByFive, multiplyByThree]
+let results = 0;
+arrOfFuncs.reduce((acc, cur) => {
+  // acc = startVal => acc = 0 ; cur = arrOfFuncs[0] => [add100]
+  console.log( cur )
+  results = acc + cur(acc) // results = 0 + 
+  return acc = acc + cur(acc)
 
-  arrOfFuncs.reduce((acc, cur) => { // acc = 0; cur = add100()
-    acc = acc + cur(startVal) // acc = 0 + 100 => acc = 100
-    return acc
-  }, startVal)
+}, startVal)
+
+console.log(results)
 }
 
 const add100 = num => {
@@ -467,22 +470,28 @@ const divByFive = num => {
 const multiplyByThree = num => {
   return num * 3;
 }
+const multiplyFive = num => {
+  return num * 5;
+}
+const addTen = num => {
+  return num + 10;
+}
 
-// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
-// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
 
 // Challenge 23
 const myFunc = (array, cb) => {
-  console.log(array.sort((a,b)=>a-b))
+  // console.log(array.sort((a,b)=>a-b))
 
-  let sortedArr = array.sort((a,b) => a - b)
+  // let sortedArr = array.sort((a,b) => a - b)
 
-  array.forEach((num) => {
-    if (cb(num)) {
-      return array[]
-    }
-  })
+  // array.forEach((num) => {
+  //   if (cb(num)) {
+  //     return array[]
+  //   }
+  // })
 
 }
 
