@@ -484,18 +484,13 @@ const addTen = num => {
 
 // Challenge 23
 const myFunc = (array, cb) => {
-  let results = -1;
 
   for (let i = 0; i < array.length; i++) {
-    // console.log(cb(array[i]))
-    // if (cb(array[i])) {
-    //   results = i
-    // }
-
-    cb((array[i]) ? results = 1 : results = -1)
+    if (cb(array[i])) {
+      return i
+    }
   }
-
-  return results
+  return -1
 }
 
 const numbers = [2, 3, 6, 64, 10, 8, 12];
@@ -505,13 +500,19 @@ const isOdd = num => {
   return (num % 2 !== 0);
 }
 
-console.log(myFunc(numbers, isOdd)); // Output should be 1
+// console.log(myFunc(numbers, isOdd)); // Output should be 1
 // console.log(myFunc(evens, isOdd)); // Output should be -1
 
 
 // Challenge 24
-const myForEach = (array, callback) => {
+const myForEach = (array, cb) => {
+  let results = sum;
 
+  for (let i = 0; i < array.length; i++) {
+    results = results + cb(array[i])
+  }
+
+  return results
 }
 
 let sum = 0;
@@ -520,7 +521,7 @@ const addToSum = num => {
   sum += num;
 }
 
-// const nums = [1, 2, 3];
-// myForEach(nums, addToSum);
-// console.log(sum); 
+const nums = [1, 2, 3];
+myForEach(nums, addToSum);
+console.log(sum); 
 // Should output 6
