@@ -508,11 +508,10 @@ const isOdd = num => {
 const myForEach = (array, cb) => {
   let results = sum;
 
-  for (let i = 0; i < array.length; i++) {
-    results = results + cb(array[i])
-  }
+  array.forEach((item) => {
+    return results + cb(item)
+  })
 
-  return results
 }
 
 let sum = 0;
