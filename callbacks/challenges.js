@@ -449,16 +449,14 @@ groupOfFuncs.inverse = n => n * -1;
 // Challenge 22
 const combineOperations = (startVal, arrOfFuncs) => { 
 // startVal = 0 ; arrOfFuncs = [add100, divByFive, multiplyByThree]
-let results = 0;
-arrOfFuncs.reduce((acc, cur) => {
-  // acc = startVal => acc = 0 ; cur = arrOfFuncs[0] => [add100]
-  console.log( acc )
-  results = acc + results // results = 0 + 
-  return acc = acc + cur(acc)
+let results = startVal;
 
-}, startVal)
 
-console.log(results)
+for (let i = 0; i < arrOfFuncs.length; i++) {
+  results = arrOfFuncs[i](results)
+}
+
+return results
 }
 
 const add100 = num => {
