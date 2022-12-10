@@ -478,22 +478,24 @@ const addTen = num => {
   return num + 10;
 }
 
-console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
-console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
+// console.log(combineOperations(0, [add100, divByFive, multiplyByThree])); // Should output 60 -->
+// console.log(combineOperations(0, [divByFive, multiplyFive, addTen])); // Should output 10
 
 
 // Challenge 23
 const myFunc = (array, cb) => {
-  // console.log(array.sort((a,b)=>a-b))
+  let results = -1;
 
-  // let sortedArr = array.sort((a,b) => a - b)
+  for (let i = 0; i < array.length; i++) {
+    // console.log(cb(array[i]))
+    // if (cb(array[i])) {
+    //   results = i
+    // }
 
-  // array.forEach((num) => {
-  //   if (cb(num)) {
-  //     return array[]
-  //   }
-  // })
+    cb((array[i]) ? results = 1 : results = -1)
+  }
 
+  return results
 }
 
 const numbers = [2, 3, 6, 64, 10, 8, 12];
