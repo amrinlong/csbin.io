@@ -452,8 +452,8 @@ const combineOperations = (startVal, arrOfFuncs) => {
 let results = 0;
 arrOfFuncs.reduce((acc, cur) => {
   // acc = startVal => acc = 0 ; cur = arrOfFuncs[0] => [add100]
-  console.log( cur )
-  results = acc + cur(acc) // results = 0 + 
+  console.log( acc )
+  results = acc + results // results = 0 + 
   return acc = acc + cur(acc)
 
 }, startVal)
