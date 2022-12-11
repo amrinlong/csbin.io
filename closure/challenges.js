@@ -53,34 +53,39 @@ const addByX = (x) => {
   }
 }
 
-const addByTwo = addByX(2);
-addByTwo(1); // => should return 3
-addByTwo(2); // => should return 4
-addByTwo(3); // => should return 5
+// const addByTwo = addByX(2);
+// addByTwo(1); // => should return 3
+// addByTwo(2); // => should return 4
+// addByTwo(3); // => should return 5
 
-const addByThree = addByX(3);
-addByThree(1); // => should return 4
-addByThree(2); // => should return 5
+// const addByThree = addByX(3);
+// addByThree(1); // => should return 4
+// addByThree(2); // => should return 5
 
-const addByFour = addByX(4);
-addByFour(4); // => should return 8
-addByFour(5); // => should return 9
+// const addByFour = addByX(4);
+// addByFour(4); // => should return 8
+// addByFour(5); // => should return 9
 
 
 // CHALLENGE 4
-const once = func => {
-  const runOnce = false;
+const once = func => { 
+  let firstRunFlag = false;
+  let results;
   
-  return (input) => {
-    if (!runOnce) {
-      runOnce = true;
-    } else {
-      console.log(input)
+  const runOnce = num => {
+    if (!firstRunFlag) {
+      results = func(num)
+      firstRunFlag = true;
     }
-    
+
+    return results
   }
+  return runOnce
 }
 
+const addByTwo = n => {
+  return n + 2
+}
 const onceFunc = once(addByTwo);
 console.log(onceFunc(4));  // => should log 6
 console.log(onceFunc(10));  // => should log 6
