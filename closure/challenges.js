@@ -117,33 +117,37 @@ const called = () => {
 
 
 // CHALLENGE 6
-const delay = (cb, wait, ...args) => {
-  return function () {
-    return setTimeout(cb, wait, ...args)  
-  }
+const delay = (cb, wait) => { 
+  return () => setTimeout(cb, wait)
 }
 
 let count = 0;
-// const delayedFunc = delay(() => count++, 1000);
-const delayedFunc = delay(() => {
-  return count++
-}, 1000)
+const delayedFunc = delay(() => count++, 1000); 
 delayedFunc()
-console.log(count)  // should print '0'
-setTimeout(() => {
-  return console.log(count)
-}, 1000)  // should print '1' after 1 second
+console.log(count)                          // should print '0'
+setTimeout(() => console.log(count), 1000)  // should print '1' after 1 second                  
+
 
 // CHALLENGE 7
 const rollCall = names => {
-
+  let counter = 0;
+  const runCall = () => {
+    // counter < names.length ? (console.log(names[counter]) count++) : console.log("Everyone accounted for")
+    if (counter < names.length) {
+      console.log(names[counter])
+      counter++;
+    } else {
+      console.log("Everyone accounted for")
+    }
+  }
+  return runCall;
 }
 
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
-// rollCaller() // => should log 'Victoria'
-// rollCaller() // => should log 'Juan'
-// rollCaller() // => should log 'Ruth'
-// rollCaller() // => should log 'Everyone accounted for'
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+rollCaller() // => should log 'Victoria'
+rollCaller() // => should log 'Juan'
+rollCaller() // => should log 'Ruth'
+rollCaller() // => should log 'Everyone accounted for'
 
 
 // CHALLENGE 8
