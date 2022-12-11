@@ -1,5 +1,5 @@
 // CHALLENGE 1
-function createFunction() {
+const createFunction = () => {
   return () => {
     console.log('hello')
   }
@@ -10,7 +10,7 @@ function createFunction() {
 
 
 // CHALLENGE 2
-function createFunctionPrinter(input) {
+const createFunctionPrinter = input => {
   return () => {
     console.log(input)
   }
@@ -23,7 +23,7 @@ function createFunctionPrinter(input) {
 
 
 // CHALLENGE 3
-function outer() {
+const outer = () => {
   let counter = 0; // this variable is outside incrementCounter's scope
   function incrementCounter () {
     counter ++;
@@ -53,33 +53,42 @@ const addByX = (x) => {
   }
 }
 
-// const addByTwo = addByX(2);
-// addByTwo(1); // => should return 3
-// addByTwo(2); // => should return 4
-// addByTwo(3); // => should return 5
+const addByTwo = addByX(2);
+addByTwo(1); // => should return 3
+addByTwo(2); // => should return 4
+addByTwo(3); // => should return 5
 
-// const addByThree = addByX(3);
-// addByThree(1); // => should return 4
-// addByThree(2); // => should return 5
+const addByThree = addByX(3);
+addByThree(1); // => should return 4
+addByThree(2); // => should return 5
 
-// const addByFour = addByX(4);
-// addByFour(4); // => should return 8
-// addByFour(5); // => should return 9
+const addByFour = addByX(4);
+addByFour(4); // => should return 8
+addByFour(5); // => should return 9
 
 
 // CHALLENGE 4
-function once(func) {
-
+const once = func => {
+  const runOnce = false;
+  
+  return (input) => {
+    if (!runOnce) {
+      runOnce = true;
+    } else {
+      console.log(input)
+    }
+    
+  }
 }
 
-// const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+const onceFunc = once(addByTwo);
+console.log(onceFunc(4));  // => should log 6
+console.log(onceFunc(10));  // => should log 6
+console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
-function after(count, func) {
+const after = (count, func) => {
 
 }
 
@@ -92,13 +101,13 @@ function after(count, func) {
 
 
 // CHALLENGE 6
-function delay(func, wait) {
+const delay = (func, wait) => {
 
 }
 
 
 // CHALLENGE 7
-function rollCall(names) {
+const rollCall = names => {
 
 }
 
@@ -111,7 +120,7 @@ function rollCall(names) {
 
 
 // CHALLENGE 8
-function saveOutput(func, magicWord) {
+const saveOutput = (func, magicWord) => {
 
 }
 
@@ -124,7 +133,7 @@ function saveOutput(func, magicWord) {
 
 
 // CHALLENGE 9
-function cycleIterator(array) {
+const cycleIterator = array => {
 
 }
 
@@ -138,7 +147,7 @@ function cycleIterator(array) {
 
 
 // CHALLENGE 10
-function defineFirstArg(func, arg) {
+const defineFirstArg = (func, arg) => {
 
 }
 
@@ -149,7 +158,7 @@ function defineFirstArg(func, arg) {
 
 
 // CHALLENGE 11
-function dateStamp(func) {
+const dateStamp = func => {
 
 }
 
@@ -160,7 +169,7 @@ function dateStamp(func) {
 
 
 // CHALLENGE 12
-function censor() {
+const censor = () => {
 
 }
 
@@ -172,7 +181,7 @@ function censor() {
 
 
 // CHALLENGE 13
-function createSecretHolder(secret) {
+const createSecretHolder = secret => {
 
 }
 
@@ -184,7 +193,7 @@ function createSecretHolder(secret) {
 
 
 // CHALLENGE 14
-function callTimes() {
+const callTimes = () => {
 
 }
 
@@ -198,7 +207,7 @@ function callTimes() {
 
 
 // CHALLENGE 15
-function roulette(num) {
+const roulette = num => {
 
 }
 
@@ -212,7 +221,7 @@ function roulette(num) {
 
 
 // CHALLENGE 16
-function average() {
+const average = () => {
 
 }
 
@@ -227,7 +236,7 @@ function average() {
 
 
 // CHALLENGE 17
-function makeFuncTester(arrOfTests) {
+const makeFuncTester = arrOfTests => {
   
 }
 
@@ -244,7 +253,7 @@ function makeFuncTester(arrOfTests) {
 
 
 // CHALLENGE 18
-function makeHistory(limit) {
+const makeHistory = limit => {
 
 }
 
@@ -261,7 +270,7 @@ function makeHistory(limit) {
 
 
 // CHALLENGE 19
-function blackjack(array) {
+const blackjack = array => {
 
 }
 
