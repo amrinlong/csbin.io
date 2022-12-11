@@ -110,24 +110,35 @@ const called = () => {
   return console.log("hello") 
 };
 
-const afterCalled = after(3, called);
-afterCalled(); // => nothing is printed
-afterCalled(); // => nothing is printed
-afterCalled(); // => 'hello' is printed
+// const afterCalled = after(3, called);
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
-const delay = (func, wait) => {
-
+const delay = (cb, wait, ...args) => {
+  return function () {
+    return setTimeout(cb, wait, ...args)  
+  }
 }
 
+let count = 0;
+// const delayedFunc = delay(() => count++, 1000);
+const delayedFunc = delay(() => {
+  return count++
+}, 1000)
+delayedFunc()
+console.log(count)  // should print '0'
+setTimeout(() => {
+  return console.log(count)
+}, 1000)  // should print '1' after 1 second
 
 // CHALLENGE 7
 const rollCall = names => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 // rollCaller() // => should log 'Victoria'
 // rollCaller() // => should log 'Juan'
