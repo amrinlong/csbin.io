@@ -1,6 +1,8 @@
 // CHALLENGE 1
 function createFunction() {
-
+  return () => {
+    console.log('hello')
+  }
 }
 
 // const function1 = createFunction();
@@ -9,7 +11,9 @@ function createFunction() {
 
 // CHALLENGE 2
 function createFunctionPrinter(input) {
-
+  return () => {
+    console.log(input)
+  }
 }
 
 // const printSample = createFunctionPrinter('sample');
@@ -43,10 +47,11 @@ const jasCounter = outer();
 // willCounter();
 
 
-function addByX(x) {
-
+const addByX = (x) => {
+  return (input) => {
+    console.log(input + x)
+  }
 }
-
 
 // const addByTwo = addByX(2);
 // addByTwo(1); // => should return 3
@@ -67,7 +72,6 @@ function once(func) {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // const onceFunc = once(addByTwo);
 // console.log(onceFunc(4));  // => should log 6
 // console.log(onceFunc(10));  // => should log 6
