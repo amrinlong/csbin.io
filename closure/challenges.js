@@ -86,23 +86,34 @@ const once = func => {
 const addByTwo = n => {
   return n + 2
 }
-const onceFunc = once(addByTwo);
-console.log(onceFunc(4));  // => should log 6
-console.log(onceFunc(10));  // => should log 6
-console.log(onceFunc(9001));  // => should log 6
+// const onceFunc = once(addByTwo);
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
-const after = (count, func) => {
+const after = (count, cb) => { // count = 3 ; func = const called () { }
+  let counter = 0;
 
+  const runAfterFirstTime = () => {
+    counter++
+    counter === count ? cb() : runAfterFirstTime
+    // if (counter === count) {
+    //   cb()
+    // }
+  }
+  return runAfterFirstTime
 }
 
-// /*** Uncomment these to check your work! ***/
-// const called = function() { console.log('hello') };
-// const afterCalled = after(3, called);
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => 'hello' is printed
+const called = () => { 
+  return console.log("hello") 
+};
+
+const afterCalled = after(3, called);
+afterCalled(); // => nothing is printed
+afterCalled(); // => nothing is printed
+afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
