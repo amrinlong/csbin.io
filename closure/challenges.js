@@ -174,32 +174,33 @@ const cycleIterator = array => {
   let count = 0
 
   const cycle = () => {
-    console.log(array[count])
-    if (count === array.length - 1) {
-      return count = 0
-    }
-    return count++
+    count++;
+    return array[(count - 1) % array.length];
   }
   return cycle
 }
 
-const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-const getDay = cycleIterator(threeDayWeekend);
-console.log(getDay()); // => should log 'Fri'
-console.log(getDay()); // => should log 'Sat'
-console.log(getDay()); // => should log 'Sun'
-console.log(getDay()); // => should log 'Fri'
+// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+// const getDay = cycleIterator(threeDayWeekend);
+// console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Sat'
+// console.log(getDay()); // => should log 'Sun'
+// console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
-const defineFirstArg = (func, arg) => {
+const defineFirstArg = (cb, arg) => {
 
+  const innerFunc = arg => {
+
+  }
 }
 
-// /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
-// console.log(subFrom20(5)); // => should log 15
+const subtract = (big, small) => { 
+  return big - small; 
+};
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11

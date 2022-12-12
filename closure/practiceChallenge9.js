@@ -3,7 +3,8 @@ const cycleIterator = array => {
   let count = 0
 
   const cycle = () => {
-    
+    count++;
+    return array[(count - 1) % array.length];
   }
   return cycle
 }
