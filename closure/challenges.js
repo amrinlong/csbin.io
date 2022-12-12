@@ -191,9 +191,10 @@ const cycleIterator = array => {
 // CHALLENGE 10
 const defineFirstArg = (cb, arg) => {
 
-  const innerFunc = arg => {
-
+  const cbSubFrom20 = input => {
+    return cb(arg, input)
   }
+  return cbSubFrom20
 }
 
 const subtract = (big, small) => { 
@@ -204,14 +205,20 @@ console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
-const dateStamp = func => {
+const dateStamp = cb => {
+  const results = {}
 
+  const cbAndStampedMultBy2 = input => {
+    results['date'] = 
+    return results
+  }
+
+  return cbAndStampedMultBy2 //innerFunction
 }
 
-// /*** Uncomment these to check your work! ***/
-// const stampedMultBy2 = dateStamp(n => n * 2);
-// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+const stampedMultBy2 = dateStamp(n => n * 2);
+console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
