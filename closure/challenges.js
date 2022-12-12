@@ -162,24 +162,33 @@ const saveOutput = (cb, pw) => {
   return cbAndResults;
 }
 
-const multiplyBy2 = num => { return num * 2; };
-const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-console.log(multBy2AndLog(2)); // => should log 4
-console.log(multBy2AndLog(9)); // => should log 18
-console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
+// const multiplyBy2 = num => { return num * 2; };
+// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+// console.log(multBy2AndLog(2)); // => should log 4
+// console.log(multBy2AndLog(9)); // => should log 18
+// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
 
 // CHALLENGE 9
 const cycleIterator = array => {
+  let count = 0
 
+  const cycle = () => {
+    console.log(array[count])
+    if (count === array.length - 1) {
+      return count = 0
+    }
+    return count++
+  }
+  return cycle
 }
 
-// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-// const getDay = cycleIterator(threeDayWeekend);
-// console.log(getDay()); // => should log 'Fri'
-// console.log(getDay()); // => should log 'Sat'
-// console.log(getDay()); // => should log 'Sun'
-// console.log(getDay()); // => should log 'Fri'
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
+console.log(getDay()); // => should log 'Sun'
+console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
