@@ -1,16 +1,6 @@
 // CHALLENGE 8
 const saveOutput = (cb, pw) => {
-  let results = {}
-
-  const cbAndResults = num => {
-    if (num === pw) {
-        return results
-    } else {
-        results[num] = cb(num)
-        return results[num]
-    }
-  }
-  return cbAndResults
+  
 }
 
 const multiplyBy2 = num => { return num * 2; };

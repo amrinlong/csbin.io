@@ -148,11 +148,11 @@ const rollCall = names => {
 
 
 // CHALLENGE 8
-const saveOutput = (cb, magicWord) => {
+const saveOutput = (cb, pw) => {
   const results = {};
 
-  cbAndResults = num => {
-    if (num !== magicWord) {
+  const cbAndResults = num => {
+    if (num !== pw) {
       results[num] = cb(num)
       return results[num]
     } else {
@@ -174,7 +174,6 @@ const cycleIterator = array => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
 // const getDay = cycleIterator(threeDayWeekend);
 // console.log(getDay()); // => should log 'Fri'
