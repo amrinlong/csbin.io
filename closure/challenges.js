@@ -149,7 +149,17 @@ const rollCall = names => {
 
 // CHALLENGE 8
 const saveOutput = (cb, magicWord) => {
+  const results = {};
 
+  cbAndResults = num => {
+    if (num !== magicWord) {
+      results[num] = cb(num)
+      return results[num]
+    } else {
+      return results
+    }
+  }
+  return cbAndResults;
 }
 
 const multiplyBy2 = num => { return num * 2; };
