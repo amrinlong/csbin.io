@@ -201,7 +201,7 @@ const subtract = (big, small) => {
   return big - small; 
 };
 const subFrom20 = defineFirstArg(subtract, 20);
-console.log(subFrom20(5)); // => should log 15
+// console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
@@ -209,7 +209,9 @@ const dateStamp = cb => {
   const results = {}
 
   const cbAndStampedMultBy2 = input => {
-    results['date'] = 
+    results['date'] = new Date()
+    results['output'] = cb(input)
+
     return results
   }
 
@@ -217,20 +219,34 @@ const dateStamp = cb => {
 }
 
 const stampedMultBy2 = dateStamp(n => n * 2);
-console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
 const censor = () => {
+  const results = {}
 
+  const emptyAndCensor = (...inputs) => {
+    console.log(inputs.length)
+    console.log(inputs[0])
+    console.log(inputs[1])
+    if (inputs.length === 2) {
+      results[inputs[0]] = inputs[1]
+    }
+
+    
+    
+    return // results
+  }
+
+  return emptyAndCensor
 }
 
-// /*** Uncomment these to check your work! ***/
-// const changeScene = censor();
-// changeScene('dogs', 'cats');
-// changeScene('quick', 'slow');
-// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13
