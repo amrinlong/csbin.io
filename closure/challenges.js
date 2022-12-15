@@ -233,21 +233,19 @@ const censor = () => {
   */
 
   const emptyAndCensor = (...inputs) => {
-    console.log(inputs.length)
-    console.log(inputs[0])
-    console.log(inputs[1])
+    // console.log(inputs.length)
+    // console.log(inputs[0])
+    // console.log(inputs[1])
     if (inputs.length === 2) {
       results[inputs[0]] = inputs[1]
-    } 
-    if (inputs.length === 1) {
+    } else if (inputs.length === 1) {
+      let resultString = inputs[0]
       for (let key in results) {
-        inputs.replace(key, results[key])
+        resultString = resultString.replace(key, results[key])
       }
+      return resultString
     }
-    
-    return results // results
   }
-
   return emptyAndCensor
 }
 
