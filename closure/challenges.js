@@ -226,6 +226,11 @@ const stampedMultBy2 = dateStamp(n => n * 2);
 // CHALLENGE 12
 const censor = () => {
   const results = {}
+  /* results = {
+    'dogs' : 'cats',
+    'quick' : 'slow',
+  } 
+  */
 
   const emptyAndCensor = (...inputs) => {
     console.log(inputs.length)
@@ -233,11 +238,14 @@ const censor = () => {
     console.log(inputs[1])
     if (inputs.length === 2) {
       results[inputs[0]] = inputs[1]
+    } 
+    if (inputs.length === 1) {
+      for (let key in results) {
+        inputs.replace(key, results[key])
+      }
     }
-
     
-    
-    return // results
+    return results // results
   }
 
   return emptyAndCensor
@@ -254,7 +262,6 @@ const createSecretHolder = secret => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
 // obj = createSecretHolder(5)
 // obj.getSecret() // => returns 5
 // obj.setSecret(2)
