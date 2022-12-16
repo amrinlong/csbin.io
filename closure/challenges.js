@@ -273,15 +273,22 @@ obj = createSecretHolder(5)
 } 
 */
 // console.log(obj)
-obj.getSecret() // => returns 5
-obj.setSecret(2)
-obj.getSecret() // => returns 2
-console.log(obj.getSecret())
+// obj.getSecret() // => returns 5
+// obj.setSecret(2)
+// obj.getSecret() // => returns 2
+// console.log(obj.getSecret()) // This was missing from excercise 
 
 
 // CHALLENGE 14
 const callTimes = () => {
+  let counter = 0;
 
+  const innerFunc = () => {
+    counter++
+    return counter
+  }
+
+  return innerFunc
 }
 
 let myNewFunc1 = callTimes();
