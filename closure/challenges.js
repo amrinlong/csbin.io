@@ -233,9 +233,6 @@ const censor = () => {
   */
 
   const emptyAndCensor = (...inputs) => {
-    // console.log(inputs.length)
-    // console.log(inputs[0])
-    // console.log(inputs[1])
     if (inputs.length === 2) {
       results[inputs[0]] = inputs[1]
     } else if (inputs.length === 1) {
@@ -250,20 +247,36 @@ const censor = () => {
 }
 
 const changeScene = censor();
-changeScene('dogs', 'cats');
-changeScene('quick', 'slow');
-console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+// changeScene('dogs', 'cats');
+// changeScene('quick', 'slow');
+// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13
 const createSecretHolder = secret => {
+  let results = secret
 
+  return {
+    getSecret: () => {
+      return secret
+    },
+    setSecret: (input) => {
+      results = input
+    }   
+  }
 }
 
-// obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
-// obj.setSecret(2)
-// obj.getSecret() // => returns 2
+obj = createSecretHolder(5)
+/* obj = {
+  getSecret: () => {},
+  setSecret: () => {}
+} 
+*/
+// console.log(obj)
+obj.getSecret() // => returns 5
+obj.setSecret(2)
+obj.getSecret() // => returns 2
+console.log(obj.getSecret())
 
 
 // CHALLENGE 14
@@ -271,13 +284,12 @@ const callTimes = () => {
 
 }
 
-// /*** Uncomment these to check your work! ***/
-// let myNewFunc1 = callTimes();
-// let myNewFunc2 = callTimes();
-// myNewFunc1(); // => 1
-// myNewFunc1(); // => 2
-// myNewFunc2(); // => 1
-// myNewFunc2(); // => 2
+let myNewFunc1 = callTimes();
+let myNewFunc2 = callTimes();
+myNewFunc1(); // => 1
+myNewFunc1(); // => 2
+myNewFunc2(); // => 1
+myNewFunc2(); // => 2
 
 
 // CHALLENGE 15
