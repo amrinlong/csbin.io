@@ -285,26 +285,37 @@ const callTimes = () => {
 
   const innerFunc = () => {
     counter++
+    console.log(counter)
     return counter
   }
-
+  
   return innerFunc
 }
 
-let myNewFunc1 = callTimes();
-let myNewFunc2 = callTimes();
-myNewFunc1(); // => 1
-myNewFunc1(); // => 2
-myNewFunc2(); // => 1
-myNewFunc2(); // => 2
+// let myNewFunc1 = callTimes();
+// let myNewFunc2 = callTimes();
+// myNewFunc1(); // => 1
+// myNewFunc1(); // => 2
+// myNewFunc2(); // => 1
+// myNewFunc2(); // => 2
 
 
 // CHALLENGE 15
 const roulette = num => {
-
+  let count = 0;
+  const innerFunc = () => {
+    count++
+    if (count < num) {
+      return 'spin'
+    } else if (count === num) {
+      return 'win'
+    } else {
+      return 'pick a number to play again'
+    }
+  }
+  return innerFunc
 }
 
-// /*** Uncomment these to check your work! ***/
 // const play = roulette(3);
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'spin'
@@ -315,11 +326,25 @@ const roulette = num => {
 
 // CHALLENGE 16
 const average = () => {
+  let total = 0;
+  let counter = 0; 
 
+  const innerFunc = input => {
+    if (input === undefined) {
+      if (counter === 0) {
+        return 0
+      } else {
+        return total / counter;
+      }
+    }
+    counter++
+    total += input;
+    return total / counter;
+  }
+  return innerFunc
 }
 
-// /*** Uncomment these to check your work! ***/
-// const avgSoFar = average();
+const avgSoFar = average();
 // console.log(avgSoFar()); // => should log 0
 // console.log(avgSoFar(4)); // => should log 4
 // console.log(avgSoFar(8)); // => should log 6
@@ -333,16 +358,15 @@ const makeFuncTester = arrOfTests => {
   
 }
 
-// /*** Uncomment these to check your work! ***/
-// const capLastTestCases = [];
-// capLastTestCases.push(['hello', 'hellO']);
-// capLastTestCases.push(['goodbye', 'goodbyE']);
-// capLastTestCases.push(['howdy', 'howdY']);
-// const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
-// const capLastAttempt1 = str => str.toUpperCase();
-// const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
-// console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
-// console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+const capLastTestCases = [];
+capLastTestCases.push(['hello', 'hellO']);
+capLastTestCases.push(['goodbye', 'goodbyE']);
+capLastTestCases.push(['howdy', 'howdY']);
+const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+const capLastAttempt1 = str => str.toUpperCase();
+const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
 // CHALLENGE 18
