@@ -355,7 +355,13 @@ const avgSoFar = average();
 
 // CHALLENGE 17
 const makeFuncTester = arrOfTests => {
-  
+  const innerFun = (cb) => { //function should return true or false
+    return arrOfTests.forEach((input) => {
+
+    })
+  }
+
+  return innerFun()
 }
 
 const capLastTestCases = [];
