@@ -253,12 +253,12 @@ const changeScene = censor();
 
 
 // CHALLENGE 13
-const createSecretHolder = secret => {
-  let results = secret
+const createSecretHolder = secret => { // 5
+  let results = secret // results = 2
 
   return {
     getSecret: () => {
-      return secret
+      return results
     },
     setSecret: (input) => {
       results = input
@@ -266,17 +266,13 @@ const createSecretHolder = secret => {
   }
 }
 
-obj = createSecretHolder(5)
-/* obj = {
-  getSecret: () => {},
-  setSecret: () => {}
-} 
-*/
-// console.log(obj)
-// obj.getSecret() // => returns 5
-// obj.setSecret(2)
-// obj.getSecret() // => returns 2
+const obj = createSecretHolder(5)
+obj.getSecret() // => returns 5
 // console.log(obj.getSecret()) // This was missing from excercise 
+obj.setSecret(2)
+obj.getSecret() // => returns 2
+// console.log(obj.getSecret()) // This was missing from excercise 
+
 
 
 // CHALLENGE 14
@@ -316,7 +312,7 @@ const roulette = num => {
   return innerFunc
 }
 
-// const play = roulette(3);
+const play = roulette(3);
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'win'
@@ -355,13 +351,9 @@ const avgSoFar = average();
 
 // CHALLENGE 17
 const makeFuncTester = arrOfTests => {
-  const innerFun = (cb) => { //function should return true or false
-    return arrOfTests.forEach((input) => {
-
-    })
+  return (cb) => { 
+    return arrOfTests.every((couple) => cb(couple[0]) === couple[1]);
   }
-
-  return innerFun()
 }
 
 const capLastTestCases = [];
@@ -369,6 +361,17 @@ capLastTestCases.push(['hello', 'hellO']);
 capLastTestCases.push(['goodbye', 'goodbyE']);
 capLastTestCases.push(['howdy', 'howdY']);
 const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+/*
+  const shouldCapitalizeLast = (cb) => { // 
+    return arrOfTests.every((couple) => cb(couple[0]) === couple[1]);
+  }
+*/
+
+// [
+//   [ 'hello', 'hellO' ],
+//   [ 'goodbye', 'goodbyE' ],
+//   [ 'howdy', 'howdY' ]
+// ]
 const capLastAttempt1 = str => str.toUpperCase();
 const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
 console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
@@ -396,8 +399,6 @@ const makeHistory = limit => {
 const blackjack = array => {
 
 }
-
-// /*** Uncomment these to check your work! ***/
 
 // /*** DEALER ***/
 // const deal = blackjack([2, 6, 1, 7, 11, 4, 6, 3, 9, 8, 9, 3, 10, 4, 5, 3, 7, 4, 9, 6, 10, 11]);
