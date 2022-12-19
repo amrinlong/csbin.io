@@ -1,8 +1,6 @@
 // CHALLENGE 1
 const createFunction = () => {
-  return () => {
-    console.log('hello')
-  }
+
 }
 
 // const function1 = createFunction();
@@ -10,10 +8,8 @@ const createFunction = () => {
 
 
 // CHALLENGE 2
-const createFunctionPrinter = input => {
-  return () => {
-    console.log(input)
-  }
+function createFunctionPrinter(input) {
+
 }
 
 // const printSample = createFunctionPrinter('sample');
@@ -23,7 +19,7 @@ const createFunctionPrinter = input => {
 
 
 // CHALLENGE 3
-const outer = () => {
+function outer() {
   let counter = 0; // this variable is outside incrementCounter's scope
   function incrementCounter () {
     counter ++;
@@ -38,7 +34,6 @@ const jasCounter = outer();
 // Uncomment each of these lines one by one.
 // Before your do, guess what will be logged from each function call.
 
-
 // willCounter();
 // willCounter();
 // willCounter();
@@ -47,11 +42,10 @@ const jasCounter = outer();
 // willCounter();
 
 
-const addByX = (x) => {
-  return (input) => {
-    console.log(input + x)
-  }
+function addByX(x) {
+
 }
+
 
 // const addByTwo = addByX(2);
 // addByTwo(1); // => should return 3
@@ -68,24 +62,10 @@ const addByX = (x) => {
 
 
 // CHALLENGE 4
-const once = func => { 
-  let firstRunFlag = false;
-  let results;
-  
-  const runOnce = num => {
-    if (!firstRunFlag) {
-      results = func(num)
-      firstRunFlag = true;
-    }
+function once(func) {
 
-    return results
-  }
-  return runOnce
 }
 
-const addByTwo = n => {
-  return n + 2
-}
 // const onceFunc = once(addByTwo);
 // console.log(onceFunc(4));  // => should log 6
 // console.log(onceFunc(10));  // => should log 6
@@ -93,23 +73,11 @@ const addByTwo = n => {
 
 
 // CHALLENGE 5
-const after = (count, cb) => { // count = 3 ; func = const called () { }
-  let counter = 0;
+function after(count, func) {
 
-  const runAfterFirstTime = () => {
-    counter++
-    counter === count ? cb() : runAfterFirstTime
-    // if (counter === count) {
-    //   cb()
-    // }
-  }
-  return runAfterFirstTime
 }
 
-const called = () => { 
-  return console.log("hello") 
-};
-
+// const called = function() { console.log('hello') };
 // const afterCalled = after(3, called);
 // afterCalled(); // => nothing is printed
 // afterCalled(); // => nothing is printed
@@ -117,27 +85,14 @@ const called = () => {
 
 
 // CHALLENGE 6
-const delay = (cb, wait) => { 
-  return () => { return setTimeout(cb, wait) }
-}
+function delay(func, wait) {
 
-// let count = 0;
-// const delayedFunc = delay(() => count++, 1000); 
-// delayedFunc()
-// console.log(count)                          // should print '0'
-// setTimeout(() => console.log(count), 1000)  // should print '1' after 1 second                  
+}
 
 
 // CHALLENGE 7
-const rollCall = names => {
-  let count = 0;
-  return  () => {
-    if (count >= names.length) {
-        return console.log("Everyone accounted for")
-    }
-    console.log(names[count])
-    return count++
-  }
+function rollCall(names) {
+
 }
 
 // const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
@@ -148,21 +103,11 @@ const rollCall = names => {
 
 
 // CHALLENGE 8
-const saveOutput = (cb, pw) => {
-  const results = {};
+function saveOutput(func, magicWord) {
 
-  const cbAndResults = num => {
-    if (num !== pw) {
-      results[num] = cb(num)
-      return results[num]
-    } else {
-      return results
-    }
-  }
-  return cbAndResults;
 }
 
-// const multiplyBy2 = num => { return num * 2; };
+// const multiplyBy2 = function(num) { return num * 2; };
 // const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
 // console.log(multBy2AndLog(2)); // => should log 4
 // console.log(multBy2AndLog(9)); // => should log 18
@@ -170,14 +115,8 @@ const saveOutput = (cb, pw) => {
 
 
 // CHALLENGE 9
-const cycleIterator = array => {
-  let count = 0
+function cycleIterator(array) {
 
-  const cycle = () => {
-    count++;
-    return array[(count - 1) % array.length];
-  }
-  return cycle
 }
 
 // const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
@@ -189,103 +128,50 @@ const cycleIterator = array => {
 
 
 // CHALLENGE 10
-const defineFirstArg = (cb, arg) => {
+function defineFirstArg(func, arg) {
 
-  const cbSubFrom20 = input => {
-    return cb(arg, input)
-  }
-  return cbSubFrom20
 }
 
-const subtract = (big, small) => { 
-  return big - small; 
-};
-const subFrom20 = defineFirstArg(subtract, 20);
+// const subtract = function(big, small) { return big - small; };
+// const subFrom20 = defineFirstArg(subtract, 20);
 // console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
-const dateStamp = cb => {
-  const results = {}
+function dateStamp(func) {
 
-  const cbAndStampedMultBy2 = input => {
-    results['date'] = new Date()
-    results['output'] = cb(input)
-
-    return results
-  }
-
-  return cbAndStampedMultBy2 //innerFunction
 }
 
-const stampedMultBy2 = dateStamp(n => n * 2);
+// const stampedMultBy2 = dateStamp(n => n * 2);
 // console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
 // console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
-const censor = () => {
-  const results = {}
-  /* results = {
-    'dogs' : 'cats',
-    'quick' : 'slow',
-  } 
-  */
+function censor() {
 
-  const emptyAndCensor = (...inputs) => {
-    if (inputs.length === 2) {
-      results[inputs[0]] = inputs[1]
-    } else if (inputs.length === 1) {
-      let resultString = inputs[0]
-      for (let key in results) {
-        resultString = resultString.replace(key, results[key])
-      }
-      return resultString
-    }
-  }
-  return emptyAndCensor
 }
 
-const changeScene = censor();
+// const changeScene = censor();
 // changeScene('dogs', 'cats');
 // changeScene('quick', 'slow');
 // console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13
-const createSecretHolder = secret => { // 5
-  let results = secret // results = 2
+function createSecretHolder(secret) {
 
-  return {
-    getSecret: () => {
-      return results
-    },
-    setSecret: (input) => {
-      results = input
-    }   
-  }
 }
 
-const obj = createSecretHolder(5)
-obj.getSecret() // => returns 5
-// console.log(obj.getSecret()) // This was missing from excercise 
-obj.setSecret(2)
-obj.getSecret() // => returns 2
-// console.log(obj.getSecret()) // This was missing from excercise 
-
+// obj = createSecretHolder(5)
+// obj.getSecret() // => returns 5
+// obj.setSecret(2)
+// obj.getSecret() // => returns 2
 
 
 // CHALLENGE 14
-const callTimes = () => {
-  let counter = 0;
+function callTimes() {
 
-  const innerFunc = () => {
-    counter++
-    console.log(counter)
-    return counter
-  }
-  
-  return innerFunc
 }
 
 // let myNewFunc1 = callTimes();
@@ -297,22 +183,11 @@ const callTimes = () => {
 
 
 // CHALLENGE 15
-const roulette = num => {
-  let count = 0;
-  const innerFunc = () => {
-    count++
-    if (count < num) {
-      return 'spin'
-    } else if (count === num) {
-      return 'win'
-    } else {
-      return 'pick a number to play again'
-    }
-  }
-  return innerFunc
+function roulette(num) {
+
 }
 
-const play = roulette(3);
+// const play = roulette(3);
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'win'
@@ -321,26 +196,11 @@ const play = roulette(3);
 
 
 // CHALLENGE 16
-const average = () => {
-  let total = 0;
-  let counter = 0; 
+function average() {
 
-  const innerFunc = input => {
-    if (input === undefined) {
-      if (counter === 0) {
-        return 0
-      } else {
-        return total / counter;
-      }
-    }
-    counter++
-    total += input;
-    return total / counter;
-  }
-  return innerFunc
 }
 
-const avgSoFar = average();
+// const avgSoFar = average();
 // console.log(avgSoFar()); // => should log 0
 // console.log(avgSoFar(4)); // => should log 4
 // console.log(avgSoFar(8)); // => should log 6
@@ -350,46 +210,27 @@ const avgSoFar = average();
 
 
 // CHALLENGE 17
-const makeFuncTester = arrOfTests => {
-  return (cb) => { 
-    return arrOfTests.every((couple) => cb(couple[0]) === couple[1]);
-  }
+function makeFuncTester(arrOfTests) {
+  
 }
 
-const capLastTestCases = [];
-capLastTestCases.push(['hello', 'hellO']);
-capLastTestCases.push(['goodbye', 'goodbyE']);
-capLastTestCases.push(['howdy', 'howdY']);
-const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
-/*
-  const shouldCapitalizeLast = (cb) => { // 
-    return arrOfTests.every((couple) => cb(couple[0]) === couple[1]);
-  }
-*/
-
-// [
-//   [ 'hello', 'hellO' ],
-//   [ 'goodbye', 'goodbyE' ],
-//   [ 'howdy', 'howdY' ]
-// ]
-const capLastAttempt1 = str => str.toUpperCase();
-const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
-console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
-console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+// const capLastTestCases = [];
+// capLastTestCases.push(['hello', 'hellO']);
+// capLastTestCases.push(['goodbye', 'goodbyE']);
+// capLastTestCases.push(['howdy', 'howdY']);
+// const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+// const capLastAttempt1 = str => str.toUpperCase();
+// const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+// console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+// console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
 // CHALLENGE 18
-const makeHistory = limit => {
-  return () => {
+function makeHistory(limit) {
 
-  }
 }
 
 // const myActions = makeHistory(2);
-/*
-  
-*/
-
 // console.log(myActions('jump')); // => should log 'jump done'
 // console.log(myActions('undo')); // => should log 'jump undone'
 // console.log(myActions('walk')); // => should log 'walk done'
@@ -401,7 +242,7 @@ const makeHistory = limit => {
 
 
 // CHALLENGE 19
-const blackjack = array => {
+function blackjack(array) {
 
 }
 
