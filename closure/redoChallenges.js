@@ -1,15 +1,18 @@
 // CHALLENGE 1
 const createFunction = () => {
-
+  return () => {
+    console.log('hello')
+  }
 }
 
 // const function1 = createFunction();
 // function1(); // => should console.log('hello');
 
-
 // CHALLENGE 2
-function createFunctionPrinter(input) {
-
+const createFunctionPrinter = input => {
+  return () => {
+    console.log(input)
+  }
 }
 
 // const printSample = createFunctionPrinter('sample');
@@ -19,9 +22,9 @@ function createFunctionPrinter(input) {
 
 
 // CHALLENGE 3
-function outer() {
+const outer = () => {
   let counter = 0; // this variable is outside incrementCounter's scope
-  function incrementCounter () {
+  const incrementCounter = () => {
     counter ++;
     console.log('counter', counter);
   }
@@ -42,10 +45,12 @@ const jasCounter = outer();
 // willCounter();
 
 
-function addByX(x) {
+const addByX = (x) => {
 
+  return (input) => {
+    console.log(x + input)
+  }
 }
-
 
 // const addByTwo = addByX(2);
 // addByTwo(1); // => should return 3
@@ -62,14 +67,27 @@ function addByX(x) {
 
 
 // CHALLENGE 4
-function once(func) {
+const once = cb => {
+  let results = 0;
+  let runFlag = false;
 
+  
+
+  return (input) => {
+    if (!runFlag) {
+      runFlag = true;
+    }
+    results = cb(input)
+  }
 }
 
-// const onceFunc = once(addByTwo);
-// console.log(onceFunc(4));  // => should log 6
-// console.log(onceFunc(10));  // => should log 6
-// console.log(onceFunc(9001));  // => should log 6
+const onceFunc = once(addByTwo);
+/* once(addByTwo) => cb(input)
+
+ */
+console.log(onceFunc(4));  // => should log 6
+console.log(onceFunc(10));  // => should log 6
+console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
