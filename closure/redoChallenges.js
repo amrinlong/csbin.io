@@ -86,7 +86,6 @@ const once = cb => {
 // const addByTwo = n => {
 //   return n + 2
 // }
-
 // const onceFunc = once(addByTwo)
 
 // console.log(onceFunc(4));  // => should log 6
@@ -95,15 +94,26 @@ const once = cb => {
 
 
 // CHALLENGE 5
-function after(count, func) {
+const after = (count, cb) => {
 
+  const innerFunction = () => {
+    count--;
+    if (count === 1) {
+      cb()
+    }
+  }
+
+  return innerFunction
 }
 
-// const called = function() { console.log('hello') };
-// const afterCalled = after(3, called);
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => nothing is printed
-// afterCalled(); // => 'hello' is printed
+const called = () => { 
+  return console.log('hello') 
+};
+const afterCalled = after(3, called);
+
+afterCalled(); // => nothing is printed
+afterCalled(); // => nothing is printed
+afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
