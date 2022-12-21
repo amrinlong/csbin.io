@@ -68,26 +68,30 @@ const addByX = (x) => {
 
 // CHALLENGE 4
 const once = cb => {
-  let results = 0;
-  let runFlag = false;
-
+  let runOnce = false;
+  let results;
   
 
-  return (input) => {
-    if (!runFlag) {
-      runFlag = true;
+  const innerFunction = (input) => {
+    if (!runOnce) {
+      runOnce = true;
+      results = cb(input)
     }
-    results = cb(input)
+    return results
   }
+
+  return innerFunction
 }
 
-const onceFunc = once(addByTwo);
-/* once(addByTwo) => cb(input)
+// const addByTwo = n => {
+//   return n + 2
+// }
 
- */
-console.log(onceFunc(4));  // => should log 6
-console.log(onceFunc(10));  // => should log 6
-console.log(onceFunc(9001));  // => should log 6
+// const onceFunc = once(addByTwo)
+
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
