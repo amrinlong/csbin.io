@@ -72,7 +72,7 @@ const once = func => {
   let firstRunFlag = false;
   let results;
   
-  const runOnce = num => {
+  return = num => {
     if (!firstRunFlag) {
       results = func(num)
       firstRunFlag = true;
@@ -80,7 +80,6 @@ const once = func => {
 
     return results
   }
-  return runOnce
 }
 
 const addByTwo = n => {
