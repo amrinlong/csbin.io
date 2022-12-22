@@ -205,7 +205,7 @@ const defineFirstArg = (cb, arg) => {
   const innerFunc = (input) => {
     return cb(arg, input)
   }
-  
+
   return innerFunc
 }
 
@@ -236,7 +236,7 @@ const stampedMultBy2 = dateStamp(n => {
 
 
 // CHALLENGE 12
-function censor() {
+const censor = () => {
 
 }
 
