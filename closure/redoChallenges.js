@@ -214,17 +214,25 @@ const subtract = (big, small) => {
 };
 const subFrom20 = defineFirstArg(subtract, 20);
 
-console.log(subFrom20(5)); // => should log 15
+// console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
-function dateStamp(func) {
+const dateStamp = cb => {
 
+  const innerFunc = () => {
+    
+  }
+
+  return innerFunc
 }
 
-// const stampedMultBy2 = dateStamp(n => n * 2);
-// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+const stampedMultBy2 = dateStamp(n => { 
+  return n * 2
+});
+
+console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
