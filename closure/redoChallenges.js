@@ -81,13 +81,11 @@ const once = cb => {
   }
 }
 
-const onceFunc = once(addByTwo);
-/* once(addByTwo) => cb(input)
+// const onceFunc = once(addByTwo);
 
- */
-console.log(onceFunc(4));  // => should log 6
-console.log(onceFunc(10));  // => should log 6
-console.log(onceFunc(9001));  // => should log 6
+// console.log(onceFunc(4));  // => should log 6
+// console.log(onceFunc(10));  // => should log 6
+// console.log(onceFunc(9001));  // => should log 6
 
 
 // CHALLENGE 5
@@ -108,23 +106,42 @@ const called = () => {
 };
 const afterCalled = after(3, called);
 
-afterCalled(); // => nothing is printed
-afterCalled(); // => nothing is printed
-afterCalled(); // => 'hello' is printed
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => nothing is printed
+// afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
-function delay(func, wait) {
+const delay = (cb, wait) => {
 
+  return () => {
+    setTimeout(cb, wait)
+  }
 }
 
+// let count = 0;
+// const delayedFunc = delay(() => count++, 1000); 
+// delayedFunc()
+// console.log(count)                          // should print '0'
+// setTimeout(() => console.log(count), 1000)  // should print '1' after 1 second              
 
 // CHALLENGE 7
-function rollCall(names) {
+const rollCall = names => {
+  let i = 0
 
+  const innerFunc = () => {
+    if (i < names.length) {
+      console.log(names[i])
+      i++
+    } else if (i === names.length) {
+      return console.log('Everyone accounted for')
+    }
+  }
+
+  return innerFunc
 }
 
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 // rollCaller() // => should log 'Victoria'
 // rollCaller() // => should log 'Juan'
 // rollCaller() // => should log 'Ruth'
@@ -132,15 +149,18 @@ function rollCall(names) {
 
 
 // CHALLENGE 8
-function saveOutput(func, magicWord) {
+const saveOutput = (cb, magicWord) => {
 
 }
 
-// const multiplyBy2 = function(num) { return num * 2; };
-// const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
-// console.log(multBy2AndLog(2)); // => should log 4
-// console.log(multBy2AndLog(9)); // => should log 18
-// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
+const multiplyBy2 = num => { 
+  return num * 2; 
+};
+const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+
+console.log(multBy2AndLog(2)); // => should log 4
+console.log(multBy2AndLog(9)); // => should log 18
+console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
 
 // CHALLENGE 9
