@@ -153,14 +153,13 @@ const saveOutput = (cb, magicWord) => {
   let obj = {}
 
   const innerFunc = (input) => {
+    // console.log(input)
     if (input === magicWord) {
       return obj
     } else {
-      for (let key in obj) {
-        obj[input] = cb(input)
-      }
+      obj[input] = cb(input)
+      return cb(input)
     }
-  
   }
 
   return innerFunc
