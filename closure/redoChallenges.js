@@ -202,11 +202,18 @@ const getDay = cycleIterator(threeDayWeekend);
 // CHALLENGE 10
 const defineFirstArg = (cb, arg) => {
 
-  return 
+  const innerFunc = (input) => {
+    return cb(arg, input)
+  }
+
+  return innerFunc
 }
 
-const subtract = function(big, small) { return big - small; };
+const subtract = (big, small) => { 
+  return big - small; 
+};
 const subFrom20 = defineFirstArg(subtract, 20);
+
 console.log(subFrom20(5)); // => should log 15
 
 
