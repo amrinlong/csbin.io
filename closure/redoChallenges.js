@@ -205,7 +205,7 @@ const defineFirstArg = (cb, arg) => {
   const innerFunc = (input) => {
     return cb(arg, input)
   }
-
+  
   return innerFunc
 }
 
@@ -221,7 +221,7 @@ const subFrom20 = defineFirstArg(subtract, 20);
 const dateStamp = cb => {
 
   const innerFunc = () => {
-    
+
   }
 
   return innerFunc
@@ -231,8 +231,8 @@ const stampedMultBy2 = dateStamp(n => {
   return n * 2
 });
 
-console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
-console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
+// console.log(stampedMultBy2(4)); // => should log { date: (today's date), output: 8 }
+// console.log(stampedMultBy2(6)); // => should log { date: (today's date), output: 12 }
 
 
 // CHALLENGE 12
