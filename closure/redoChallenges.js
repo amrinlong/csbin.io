@@ -152,7 +152,7 @@ const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 const saveOutput = (cb, magicWord) => {
   let obj = {}
 
-  const innerFunc = (input) => {
+  const innerFunc = input => {
     // console.log(input)
     if (input === magicWord) {
       return obj
@@ -170,22 +170,33 @@ const multiplyBy2 = num => {
 };
 const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
 
-console.log(multBy2AndLog(2)); // => should log 4
-console.log(multBy2AndLog(9)); // => should log 18
-console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
+// console.log(multBy2AndLog(2)); // => should log 4
+// console.log(multBy2AndLog(9)); // => should log 18
+// console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
 
 // CHALLENGE 9
-function cycleIterator(array) {
+const cycleIterator = arr => {
+  let counter = 0 // 4
 
+  const innerFunc = () => {
+    counter++
+    if (counter === arr.length + 1) { // 4 === 4
+      counter = 1
+    }
+    return arr[counter - 1] // arr[3 - 1] => arr[2]
+  }
+
+  return innerFunc
 }
 
-// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-// const getDay = cycleIterator(threeDayWeekend);
-// console.log(getDay()); // => should log 'Fri'
-// console.log(getDay()); // => should log 'Sat'
-// console.log(getDay()); // => should log 'Sun'
-// console.log(getDay()); // => should log 'Fri'
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
+console.log(getDay()); // => should log 'Sun'
+console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
