@@ -150,7 +150,20 @@ const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 
 // CHALLENGE 8
 const saveOutput = (cb, magicWord) => {
+  let obj = {}
 
+  const innerFunc = (input) => {
+    if (input === magicWord) {
+      return obj
+    } else {
+      for (let key in obj) {
+        obj[input] = cb(input)
+      }
+    }
+  
+  }
+
+  return innerFunc
 }
 
 const multiplyBy2 = num => { 
