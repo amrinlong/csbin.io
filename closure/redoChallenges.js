@@ -190,10 +190,10 @@ const cycleIterator = arr => {
 const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
 const getDay = cycleIterator(threeDayWeekend);
 
-console.log(getDay()); // => should log 'Fri'
-console.log(getDay()); // => should log 'Sat'
-console.log(getDay()); // => should log 'Sun'
-console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Fri'
+// console.log(getDay()); // => should log 'Sat'
+// console.log(getDay()); // => should log 'Sun'
+// console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
@@ -246,9 +246,8 @@ const censor = () => {
     } else if (inputs.length === 1) {
       console.log(objPair[inputs[0]])
       console.log(objPair[inputs[1]])
-      resultsStr = resultsStr.replace(objPair[inputs[0]], inputs[1])
+      return resultsStr = resultsStr.replace(objPair[inputs[0]], inputs[1])
     }
-
   }
 
   return innerFunc
