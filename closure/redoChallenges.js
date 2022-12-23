@@ -247,7 +247,7 @@ const censor = () => {
 
 
 // CHALLENGE 13
-function createSecretHolder(secret) {
+const createSecretHolder = (secret) => {
 
 }
 
