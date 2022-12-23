@@ -178,24 +178,22 @@ const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
 const cycleIterator = arr => {
   let counter = 0 // 4
 
-  const innerFunc = () => {
-    counter++
-    if (counter === arr.length + 1) { // 4 === 4
-      counter = 1
+  return () => {
+    if (counter === arr.length) { // 4 === 4
+      counter = 0;
     }
+    counter++;
     return arr[counter - 1] // arr[3 - 1] => arr[2]
   }
-
-  return innerFunc
 }
 
 const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
 const getDay = cycleIterator(threeDayWeekend);
 
-// console.log(getDay()); // => should log 'Fri'
-// console.log(getDay()); // => should log 'Sat'
-// console.log(getDay()); // => should log 'Sun'
-// console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
+console.log(getDay()); // => should log 'Sun'
+console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
@@ -236,13 +234,31 @@ const stampedMultBy2 = dateStamp(n => {
 
 // CHALLENGE 12
 const censor = () => {
+  let objPair = {}
+  let resultsStr = ''
 
+  const innerFunc = (...inputs) => {
+    console.log(inputs)
+    console.log(inputs.length)
+
+    if (inputs.length === 2) {
+      objPair[inputs[0]] = inputs[1]
+    } else if (inputs.length === 1) {
+      console.log(objPair[inputs[0]])
+      console.log(objPair[inputs[1]])
+      resultsStr = resultsStr.replace(objPair[inputs[0]], inputs[1])
+    }
+
+  }
+
+  return innerFunc
 }
 
-// const changeScene = censor();
-// changeScene('dogs', 'cats');
-// changeScene('quick', 'slow');
-// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+const changeScene = censor();
+
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13

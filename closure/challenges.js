@@ -72,7 +72,7 @@ const once = func => {
   let firstRunFlag = false;
   let results;
   
-  return = num => {
+  return num => {
     if (!firstRunFlag) {
       results = func(num)
       firstRunFlag = true;
@@ -172,19 +172,15 @@ const saveOutput = (cb, pw) => {
 const cycleIterator = array => {
   let count = 0
 
-  const cycle = () => {
-    count++;
-    return array[(count - 1) % array.length];
-  }
-  return cycle
+  return () => array[count++ % array.length];
 }
 
-// const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
-// const getDay = cycleIterator(threeDayWeekend);
-// console.log(getDay()); // => should log 'Fri'
-// console.log(getDay()); // => should log 'Sat'
-// console.log(getDay()); // => should log 'Sun'
-// console.log(getDay()); // => should log 'Fri'
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay()); // => should log 'Fri'
+console.log(getDay()); // => should log 'Sat'
+console.log(getDay()); // => should log 'Sun'
+console.log(getDay()); // => should log 'Fri'
 
 
 // CHALLENGE 10
@@ -379,7 +375,7 @@ console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 // CHALLENGE 18
 const makeHistory = limit => {
-  return () => {
+  return (str) => {
 
   }
 }
@@ -398,6 +394,15 @@ const makeHistory = limit => {
 // console.log(myActions('undo')); // => should log 'code undone'
 // console.log(myActions('undo')); // => should log 'nothing to undo'
 
+const addNum = num => {
+  return (oneArg) => {
+    return num + oneArg
+  }
+}
+
+const fifteen = addNum(10);
+
+console.log(fifteen(5)) //15
 
 // CHALLENGE 19
 const blackjack = array => {
