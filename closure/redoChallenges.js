@@ -235,18 +235,22 @@ const stampedMultBy2 = dateStamp(n => {
 // CHALLENGE 12
 const censor = () => {
   let objPair = {}
-  let resultsStr = ''
+  
 
   const innerFunc = (...inputs) => {
-    console.log(inputs)
-    console.log(inputs.length)
+    // console.log(inputs)
+    // console.log(inputs.length)
 
     if (inputs.length === 2) {
       objPair[inputs[0]] = inputs[1]
     } else if (inputs.length === 1) {
-      console.log(objPair[inputs[0]])
-      console.log(objPair[inputs[1]])
-      return resultsStr = resultsStr.replace(objPair[inputs[0]], inputs[1])
+      let resultsStr = inputs[0]
+      // console.log(objPair[inputs[0]])
+      // console.log(objPair[inputs[1]])
+      for (let key in objPair) {
+        resultsStr = resultsStr.replace(key, objPair[key])
+      }
+      return resultsStr
     }
   }
 
