@@ -259,24 +259,31 @@ const censor = () => {
 
 const changeScene = censor();
 
-changeScene('dogs', 'cats');
-changeScene('quick', 'slow');
-console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+// changeScene('dogs', 'cats');
+// changeScene('quick', 'slow');
+// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13
-const createSecretHolder = (secret) => {
-
+const createSecretHolder = secret => {
+  let input = secret
+  
+  return {
+    getSecret: () => { return input },
+    setSecret: (input) => {
+      results = input
+    }
+  }
 }
 
 // obj = createSecretHolder(5)
-// obj.getSecret() // => returns 5
+// console.log(obj.getSecret()) // => returns 5
 // obj.setSecret(2)
-// obj.getSecret() // => returns 2
+// console.log(obj.getSecret()) // => returns 2
 
 
 // CHALLENGE 14
-function callTimes() {
+const callTimes = () => {
 
 }
 
@@ -289,11 +296,24 @@ function callTimes() {
 
 
 // CHALLENGE 15
-function roulette(num) {
+const roulette = num => {
+  let counter = 0
+  
+  const innerFunc = () => {
+    counter++
+    if (counter === num) {
+      return ('win')
+    } else if (counter < num) {
+      return ('spin') 
+    } else if (counter > num) {
+      return ('pick a number to play again')
+    }
+  }
 
+  return innerFunc
 }
 
-// const play = roulette(3);
+const play = roulette(3);
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'spin'
 // console.log(play()); // => should log 'win'
@@ -302,17 +322,33 @@ function roulette(num) {
 
 
 // CHALLENGE 16
-function average() {
+const average = () => {
+  let currentTotal = 0
+  let runCount = 0
 
+  const innerFunc = (input) => {
+    if (input === undefined) {
+      if (runCount === 0) {
+        return runCount
+      } else {
+        return currentTotal / runCount
+      }
+    }
+      runCount++
+      currentTotal += input
+      return currentTotal / runCount
+  }
+
+  return innerFunc
 }
 
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+const avgSoFar = average();
+console.log(avgSoFar()); // => should log 0
+console.log(avgSoFar(4)); // => should log 4
+console.log(avgSoFar(8)); // => should log 6
+console.log(avgSoFar()); // => should log 6
+console.log(avgSoFar(12)); // => should log 8
+console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
