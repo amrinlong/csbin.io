@@ -317,30 +317,42 @@ const roulette = num => {
     } else {
       return 'spin'
     }
-    return innerFunc
   }
 }
 
-const play = roulette(3);
-console.log(play()); // => should log 'spin'
-console.log(play()); // => should log 'spin'
-console.log(play()); // => should log 'win'
-console.log(play()); // => should log 'pick a number to play again'
-console.log(play()); // => should log 'pick a number to play again'
+// const play = roulette(3);
+// console.log(play()); // => should log 'spin'
+// console.log(play()); // => should log 'spin'
+// console.log(play()); // => should log 'win'
+// console.log(play()); // => should log 'pick a number to play again'
+// console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
-function average() {
+const average = () => {
+  let counter = 0
+  let total = 0
 
+  const innerFunc = input => {
+    if (input === undefined && counter === 0) {
+      return 0
+    } else if (input === undefined) {
+      return total / counter
+    }
+    counter++
+    total = total + input
+    return total / counter
+  }
+  return innerFunc
 }
 
-// const avgSoFar = average();
-// console.log(avgSoFar()); // => should log 0
-// console.log(avgSoFar(4)); // => should log 4
-// console.log(avgSoFar(8)); // => should log 6
-// console.log(avgSoFar()); // => should log 6
-// console.log(avgSoFar(12)); // => should log 8
-// console.log(avgSoFar()); // => should log 8
+const avgSoFar = average();
+console.log(avgSoFar()); // => should log 0
+console.log(avgSoFar(4)); // => should log 4
+console.log(avgSoFar(8)); // => should log 6
+console.log(avgSoFar()); // => should log 6
+console.log(avgSoFar(12)); // => should log 8
+console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
