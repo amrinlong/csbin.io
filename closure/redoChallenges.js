@@ -279,15 +279,21 @@ const createSecretHolder = secret => {
   return innerFunc
 }
 
-obj = createSecretHolder(5)
-obj.getSecret() // => returns 5
-obj.setSecret(2)
-obj.getSecret() // => returns 2
+// obj = createSecretHolder(5)
+// obj.getSecret() // => returns 5
+// obj.setSecret(2)
+// obj.getSecret() // => returns 2
 
 
 // CHALLENGE 14
 const callTimes = () => {
+  let counter = 0
 
+  return innerFunc = () => {
+    counter++
+    console.log(counter)
+    return counter
+  }
 }
 
 // let myNewFunc1 = callTimes();
@@ -299,16 +305,28 @@ const callTimes = () => {
 
 
 // CHALLENGE 15
-function roulette(num) {
+const roulette = num => {
+  let counter = 0
 
+  return innerFunc = () => {
+    counter++
+    if (counter === num) {
+      return 'win'
+    } else if (counter > num) {
+      return 'pick a number to play again'
+    } else {
+      return 'spin'
+    }
+    return innerFunc
+  }
 }
 
-// const play = roulette(3);
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'spin'
-// console.log(play()); // => should log 'win'
-// console.log(play()); // => should log 'pick a number to play again'
-// console.log(play()); // => should log 'pick a number to play again'
+const play = roulette(3);
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'spin'
+console.log(play()); // => should log 'win'
+console.log(play()); // => should log 'pick a number to play again'
+console.log(play()); // => should log 'pick a number to play again'
 
 
 // CHALLENGE 16
