@@ -1,20 +1,26 @@
-// Type JavaScript here and click "Run Code" or press Ctrl + s
-console.log('Hello, world!');
-
-
 // Challenge 1
-function countdown(n) {
+const countdown = n => {
 
+  console.log(n);
+
+  const newNumber = n - 1;
+
+  if (newNumber > 0) {
+      countdown(newNumber);
+  }
 }
 
-// To check if you've completed it, uncomment these console.logs!
-// countdown(5);
-// countdown(10);
+// console.log(countdown(5));
+// console.log(countdown(10));
 
 
 // Challenge 2
-function sum(array) {
-
+const sum = arr => {
+  if (arr.length === 1) {
+    return arr[0]
+  } else {
+    return arr[arr.length - 1] + sum(arr.slice(0, arr.length - 1))
+  }
 }
 
 // uncomment these to check your work
@@ -23,7 +29,7 @@ function sum(array) {
 
 
 // Challenge 3
-function palindrome(string) {
+const palindrome = string => {
 
 }
 
