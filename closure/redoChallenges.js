@@ -333,7 +333,7 @@ const average = () => {
   let counter = 0
   let total = 0
 
-  const innerFunc = input => {
+  return innerFunc = input => {
     if (input === undefined && counter === 0) {
       return 0
     } else if (input === undefined) {
@@ -343,32 +343,31 @@ const average = () => {
     total = total + input
     return total / counter
   }
-  return innerFunc
 }
 
-const avgSoFar = average();
-console.log(avgSoFar()); // => should log 0
-console.log(avgSoFar(4)); // => should log 4
-console.log(avgSoFar(8)); // => should log 6
-console.log(avgSoFar()); // => should log 6
-console.log(avgSoFar(12)); // => should log 8
-console.log(avgSoFar()); // => should log 8
+// const avgSoFar = average();
+// console.log(avgSoFar()); // => should log 0
+// console.log(avgSoFar(4)); // => should log 4
+// console.log(avgSoFar(8)); // => should log 6
+// console.log(avgSoFar()); // => should log 6
+// console.log(avgSoFar(12)); // => should log 8
+// console.log(avgSoFar()); // => should log 8
 
 
 // CHALLENGE 17
-function makeFuncTester(arrOfTests) {
+const makeFuncTester = arrOfTests => {
   
 }
 
-// const capLastTestCases = [];
-// capLastTestCases.push(['hello', 'hellO']);
-// capLastTestCases.push(['goodbye', 'goodbyE']);
-// capLastTestCases.push(['howdy', 'howdY']);
-// const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
-// const capLastAttempt1 = str => str.toUpperCase();
-// const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
-// console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
-// console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
+const capLastTestCases = [];
+capLastTestCases.push(['hello', 'hellO']);
+capLastTestCases.push(['goodbye', 'goodbyE']);
+capLastTestCases.push(['howdy', 'howdY']);
+const shouldCapitalizeLast = makeFuncTester(capLastTestCases);
+const capLastAttempt1 = str => str.toUpperCase();
+const capLastAttempt2 = str => str.slice(0, -1) + str.slice(-1).toUpperCase();
+console.log(shouldCapitalizeLast(capLastAttempt1)); // => should log false
+console.log(shouldCapitalizeLast(capLastAttempt2)); // => should log true
 
 
 // CHALLENGE 18
