@@ -23,25 +23,30 @@ const sum = arr => {
   }
 }
 
-// uncomment these to check your work
 //  console.log(sum([1,1,1])); // -> returns 3
 //  console.log(sum([1,2,3,4,5,6])); // -> returns 21
 
 
 // Challenge 3
-const palindrome = string => {
+const palindrome = str => {
+  let strNoSpecChar = str.replace(/[^a-zA-Z ]/g, "")
 
+  let halfCount = strNoSpecChar.length / 2 // halfCount = 21
+
+  console.log(halfCount)
+   
 }
 
-// console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
-// console.log(palindrome("llama mall")); //-> true
-// console.log(palindrome("jmoney")); //-> false
+console.log(palindrome("Ana"));
+console.log(palindrome("An-a"));
+console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
+console.log(palindrome("llama mall")); //-> true
+console.log(palindrome("jmoney")); //-> false
 
 
 // Challenge 4
-
-function isPrime(num) {
-
+const isPrime = num => {
+  
 }
 
 // console.log(isPrime(1)); //-> false
@@ -51,7 +56,7 @@ function isPrime(num) {
 
 
 //Challenge 5
-function pathFinder(obj, arr) {
+const pathFinder = (obj, arr) => {
 
 }
 
@@ -61,7 +66,7 @@ function pathFinder(obj, arr) {
 
 
 //Challenge 6
-function flattenRecursively(arr) {
+const flattenRecursively = arr => {
 
 }
 
@@ -70,7 +75,7 @@ function flattenRecursively(arr) {
 
 
 //Challenge 7
-function findInOrderedSet(arr, target) {
+const findInOrderedSet = (arr, target) => {
 
 }
 
@@ -80,7 +85,7 @@ function findInOrderedSet(arr, target) {
 
 
 //Challenge 8
-function countWaysToReachNthStair(n) {
+const countWaysToReachNthStair = n => {
 
 }
 
@@ -90,7 +95,7 @@ function countWaysToReachNthStair(n) {
 
 
 //Challenge 9
-function getPermutations(arr) {
+const getPermutations = arr => {
 
 }
 
@@ -99,7 +104,7 @@ function getPermutations(arr) {
 
 
 //Challenge 10
-function getRangeBetween(x, y) {
+const getRangeBetween = (x, y) => {
 
 }
 
