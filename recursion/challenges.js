@@ -55,15 +55,15 @@ const isPrime = num => {
   
 }
 
-// console.log(isPrime(1)); //-> false
-// console.log(isPrime(2)); //-> true
-// console.log(isPrime(3)); //-> true
-// console.log(isPrime(4)); //-> false
+console.log(isPrime(1)); //-> false
+console.log(isPrime(2)); //-> true
+console.log(isPrime(3)); //-> true
+console.log(isPrime(4)); //-> false
 
 
 //Challenge 5
 const pathFinder = (obj, arr) => {
-
+  
 }
 
 // const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
