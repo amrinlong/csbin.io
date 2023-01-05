@@ -28,8 +28,8 @@ const sum = arr => {
 
 
 // Challenge 3
-const palindrome = (str, left, right) => {
-  let strNoSpecChar = str.replace(/[^a-zA-Z ]/g, "")
+const palindrome = (str) => {
+  // let strNoSpecChar = str.replace(/[^a-zA-Z ]/g, "")
 
 
   let halfCount = strNoSpecChar.length / 2
@@ -37,8 +37,8 @@ const palindrome = (str, left, right) => {
 
 
 
-  console.log(halfCount)
-  console.log(strNoSpecChar)
+  // console.log(halfCount)
+  // console.log(strNoSpecChar)
    
 }
 
