@@ -51,8 +51,18 @@ const palindrome = str => {
 
 
 // Challenge 4
-const isPrime = num => {
-  
+const isPrime = (num, i = num - 1) => {
+  if (num <= 1) {
+    return false
+  }
+  if (i === 1) {
+    return true
+  }
+  if (num % i === 0) {
+    return false
+  }
+
+  return isPrime(num, --i)
 }
 
 console.log(isPrime(1)); //-> false
