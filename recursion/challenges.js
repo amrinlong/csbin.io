@@ -93,12 +93,21 @@ const pathFinder = (obj, arr) => {
 
 
 //Challenge 6
-const flattenRecursively = arr => {
-
+const flattenRecursively = (arr, results = []) => {
+  if (typeof arr[0] === 'number' || typeof arr[0] === 'object') {
+    results.push(arr[0])
+    arr.shift()
+    console.log(arr)
+    console.log(results)
+    return flattenRecursively(arr, results)
+  } else {
+    let newArr = arr[0]
+    console.log(newArr)
+  }
 }
 
-// console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
-// console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
+console.log(flattenRecursively([1, [2, 3, [4]]])); //-> [1, 2, 3, 4]
+console.log(flattenRecursively([1, {}, [3, [[4]]]])); //-> [1, {}, 3, 4]
 
 
 //Challenge 7
