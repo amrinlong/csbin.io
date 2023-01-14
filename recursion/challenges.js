@@ -65,20 +65,34 @@ const isPrime = (num, i = num - 1) => {
   return isPrime(num, --i)
 }
 
-console.log(isPrime(1)); //-> false
-console.log(isPrime(2)); //-> true
-console.log(isPrime(3)); //-> true
-console.log(isPrime(4)); //-> false
+// console.log(isPrime(1)); //-> false
+// console.log(isPrime(2)); //-> true
+// console.log(isPrime(3)); //-> true
+// console.log(isPrime(4)); //-> false
 
 
 //Challenge 5
-const pathFinder = (obj, arr) => {
-  
+const pathFinder = (obj, arr, total = Object.keys(obj).length) => {
+  // console.log(total)
+  if (arr.length === 1) {
+    console.log(obj[key])
+  }
+
+  if (arr.length > 1) {
+    if (arr[0] === Object.keys(obj)[0]) { // or if Object.keys(obj)[0] === undefined
+      newObj = {
+        
+      }
+      console.log()
+      // return pathFinder(newObj, newArr)
+    }
+  }
+
 }
 
-// const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
-// const arr = ["first", "second", "third"];
-// console.log(pathFinder(obj, arr));   //-> "finish"
+const obj = { first: { second: { third: "finish" } }, second: { third: "wrong" } };
+const arr = ["first", "second", "third"];
+console.log(pathFinder(obj, arr));   //-> "finish"
 
 
 //Challenge 6
